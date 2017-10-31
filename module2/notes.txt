@@ -58,3 +58,9 @@ conf.d  php.ini
 frpele@frpele-VirtualBox:/etc/php/7.0/apache2$
 
 mettre on sur display errors
+
+effacer fichier git
+ls -a
+rm -rf .git
+git init
+git remote add origin https://github.com/frpele/cours-php.git

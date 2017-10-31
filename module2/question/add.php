@@ -10,12 +10,14 @@
     $cond3 = $_POST['level']    != "0";
 // var_dump($_POST);
 
-    if ($cond1&& $cond2 && $cond3) {
+    if ($cond1 && $cond2 && $cond3) {
       // toutes les conditions sont remplies
     //2 Enregistrement des données en DB
 
     //1. Préparation de la requête
-    $query = $db->prepare('INSERT INTO Question(title, category, level) VALUES(:title, :category, :level)');
+    $query = $db->prepare(
+      'INSERT INTO question(title, category, level) VALUES(:title, :category, :level)'
+    );
 
     //2. Exécution
     $result = $query->execute(array(
@@ -25,7 +27,9 @@
     ));
 
     if ($result) {
-      echo'<p>Enregistrement réussi</p>';
+      // echo'<p>Enregistrement réussi</p>';
+      //redirection vers la liste des questions
+      header(('location:?route=question/list'));
     } else  {
       echo'<p>Enregistrement a échoué</p>';
     }
@@ -57,7 +61,7 @@
 
   <div class="form-group">
       <select class="" name="level">
-        <option value="0">Choisir un niveau</option>
+        <option value="0">Choisir un niveau de difficulté</option>
         <option value="1">Facile</option>
         <option value="2">Moyen</option>
         <option value="3">Difficile</option>
