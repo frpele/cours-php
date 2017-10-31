@@ -1,0 +1,60 @@
+
+Serveur de bdd :
+
+relationnel
+mySQL
+Oracle
+MariaDD
+
+Redis
+MongoDB
+
+Piles logiciels
+LAMP : Linux Apache MySql php
+
+MEAN : Mongo ExpressJS Angular Node >  (full JS)
+Adapté au SPA (Single Page Application)
+
+terminal/ se connecter à SQL:
+mysql -uroot -p
+show databases;
+create database quizz;
+
+outils graphiques :
+MAC : Sequel pro
+PC : PhpmyAdmin
+
+Installer PHPmyAdmin :
+sudo apt install phpmyadmin
+apache 2 : ok
+http://localhost/phpmyadmin => not found
+cd /etc/apache2
+ls -l
+cd sites-available
+ls
+atom .
+sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
+sudo a2enconf phpmyadmin.conf
+sudo service apache2reload
+
+http://localhost/phpmyadmin
+user : root
+
+Plusieurs bibliothèques peuvent interagir avec mysql
+mysqli (style procédural) > Exemple : mysqli_connect();
+pdo (style oo) exemple: pdo->connect();
+
+Activer php.ini
+-----
+frpele@frpele-VirtualBox:~$ cd /etc/php
+frpele@frpele-VirtualBox:/etc/php$ ls
+7.0
+frpele@frpele-VirtualBox:/etc/php$ cd 7.0
+frpele@frpele-VirtualBox:/etc/php/7.0$ ls
+apache2  cli  mods-available
+frpele@frpele-VirtualBox:/etc/php/7.0$ cd apache2/
+frpele@frpele-VirtualBox:/etc/php/7.0/apache2$ ls
+conf.d  php.ini
+frpele@frpele-VirtualBox:/etc/php/7.0/apache2$
+
+mettre on sur display errors
