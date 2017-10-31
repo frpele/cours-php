@@ -31,8 +31,12 @@ $questions = $query-> fetchAll(PDO::FETCH_OBJ);
   <td><?=$question->level ?></td>
   <td>
     <a
+    href="?route=question/edit&id=<?= $question->id ?>"
+    class="btn btn-primary btn-xs">Modifier</a>
+    <a
     href="?route=question/delete&id=<?= $question->id ?>"
     class="btn btn-danger btn-xs">Supprimer</a>
+
   </td>
 </tr>
 

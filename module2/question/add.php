@@ -1,5 +1,5 @@
 <?php
-
+include('categories.php');// accès la variable categories
 // var_dump($db);
 
   if (isset($_POST['submit'])) {
@@ -52,10 +52,9 @@
   <div class="form-group">
       <select class="" name="category">
         <option value="0">Choisir une catégorie</option>
-        <option>Politique</option>
-        <option>Littérature</option>
-        <option>Sport</option>
-        <option>Divers</option>
+        <?php foreach($categories as $category):?>
+          <option><?= $category ?></option>
+        <?php endforeach ?>
       </select>
   </div>
 
