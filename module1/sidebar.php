@@ -3,6 +3,7 @@ include_once('lib/functions.php');
 include_once('datasource.php');
 
 $stagiaires = listeStagiaires();
+// var_dump($stagiaires);
 
 // echo meilleurStagiaire(listeStagiaires())['stagiaire']['nom'];
 $meilleurs = meilleursStagiaires(listeStagiaires(),5);
@@ -20,24 +21,30 @@ $meilleurs = meilleursStagiaires(listeStagiaires(),5);
   <p>Stagiaire X (16,2)</p> -->
   <?php
 
-  $classement = [];
-
-  foreach($stagiaires as $s) {
+$moyennes = array();
+$noms =  array();
+foreach($stagiaires as $s) {
     $moyenne = moyenne($s['note'], 2);
     $nom = $s['nom'];
-    array_push($classement, $moyenne);
-    // $classement[$s['nom']] = $moyenne;
-    rsort($classement);
-    // echo '<p>' . $nom . $moyenne . '</p>';
-        }
-  for ($i=0; $i<3; $i++) {
-  $numero = $i+1;
-    if ($i == 0) {
-      echo '<p class = "meilleur">Stagiaire n°' .  $numero . ', moyenne: ' . $classement[$i]. '</p>';
-    } else {
-      echo '<p>Stagiaire n°' .  $numero . ', moyenne: ' . $classement[$i]. '</p>';
-    }
+    array_push($moyennes, $moyenne);
+    array_push($noms, $nom);
 }
+
+$classement = array_combine($noms,$moyennes);
+arsort($classement);
+
+$i =1;
+foreach($classement as $stagiaire => $note) {
+  if ($i == 1) {
+  echo '<p class = "meilleur">Stagiaire n°' . $i . ': ' . majusculeInitiale($stagiaire) .' (' . $note . ')</p>';
+} else {
+  echo '<p>Stagiaire n°' . $i . ': ' . majusculeInitiale($stagiaire) .' (' . $note . ')</p>';
+}
+  $i++; // on boucle;
+  if ($i == 4) break; // on arrète avant le 4ème;
+}
+
+
 ?>
   <ul>
     <?php

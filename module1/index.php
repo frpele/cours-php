@@ -36,7 +36,7 @@ $stagiaires = listeStagiaires();
       }
        ?>
     </table>
-    
+
     <?php include('sidebar.php');?>
 
 </div>
