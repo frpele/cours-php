@@ -26,12 +26,13 @@ $noms =  array();
 foreach($stagiaires as $s) {
     $moyenne = moyenne($s['note'], 2);
     $nom = $s['nom'];
-    array_push($moyennes, $moyenne);
+    array_push($moyennes,$moyenne);
     array_push($noms, $nom);
 }
 
 $classement = array_combine($noms,$moyennes);
 arsort($classement);
+
 
 $i =1;
 foreach($classement as $stagiaire => $note) {
