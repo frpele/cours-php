@@ -30,6 +30,10 @@ $questions = $query-> fetchAll(PDO::FETCH_OBJ);
   <td><?=$question->category ?></td>
   <td><?=$question->level ?></td>
   <td>
+
+    <a
+    href="?route=answer/manage&id_question=<?= $question->id ?>"
+    class="btn btn-success btn-xs">Gérer les réponses</a>
     <a
     href="?route=question/edit&id=<?= $question->id ?>"
     class="btn btn-primary btn-xs">Modifier</a>

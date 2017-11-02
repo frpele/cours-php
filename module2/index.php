@@ -27,6 +27,7 @@ if (isset($_GET['route'])) {
           </ul>
         </nav>
       </header>
+
     <!-- Création d'une application quizz -->
       <?php
       if (isset($route)) {
