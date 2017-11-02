@@ -33,7 +33,6 @@ foreach($stagiaires as $s) {
 $classement = array_combine($noms,$moyennes);
 arsort($classement);
 
-
 $i =1;
 foreach($classement as $stagiaire => $note) {
   if ($i == 1) {

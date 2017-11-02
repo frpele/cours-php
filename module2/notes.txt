@@ -64,3 +64,5 @@ ls -a
 rm -rf .git
 git init
 git remote add origin https://github.com/frpele/cours-php.git
+
+CRUD : Create / Read /Update / Delete
