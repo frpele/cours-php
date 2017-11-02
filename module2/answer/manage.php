@@ -77,14 +77,17 @@ if(isset($_POST['submit'])) {
             <td>
               <?php
               echo ($answer->correct ==1) ? 'Bonne' : 'Mauvaise';
-               ?>
-               &nbsp;réponse
+               ?>&nbsp;réponse
             </td>
             <td>
               <?php
                 $url = '?route=answer/delete&id_answer=' . $answer->id;
                 $url .= '&id_question=' . $id_question;
                ?>
+              <a
+              class="btn btn-default btn-xs"
+              href="#">Modifier</a>
+
               <a
               class="btn btn-danger btn-xs"
               href="<?= $url ?>">Supprimer</a>

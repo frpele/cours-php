@@ -12,8 +12,6 @@ $meilleurs = meilleursStagiaires(listeStagiaires(),5);
 // var_dump(meilleurStagiaire($stagiaires));
 ?>
 
-
-
 <div class="sidebar" >
   <h4>Les 3 meilleurs stagiaires</h4>
   <!-- <p style="font-size:1.5em; color:green">Stagiaire X (19,5)</p>
