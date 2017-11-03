@@ -2,12 +2,15 @@
 
 // fonction retournant le nbre de réponses associées à une question
 function getNbAnswers($db, $id_question) {
+  // On fournit DB en entrée de la fonction afin qu'elle puisse
+  // se servir de cet objet permettant les opérations en bdd
   $query = $db->prepare(
     'SELECT COUNT(*) FROM answer WHERE id_question = :id_question');
   $query->execute(array(
     ':id_question' =>$id_question
   ));
   $num = $query->fetch(PDO::FETCH_NUM);
+  // fetch envoie un tableau d'un seul élément (indice 0)
   return $num[0];
 }
 
