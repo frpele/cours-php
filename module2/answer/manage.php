@@ -3,6 +3,19 @@
 <!-- </pre> -->
 
 <?php
+
+function getAnswerById($answers, $id) {
+  // recherche une réponse identifiée dans un tableau de réponses
+  $answer = NULL;
+  foreach($answers as $a) {
+    if ($a->id == $id) {
+      $answer = $a;
+      break; // réponse trouvée => sortie de boucle
+    }
+  }
+  return $answer;
+}
+
 if (isset($_GET['id_question'])) {
   $id_question = $_GET['id_question'];
 
@@ -30,15 +43,19 @@ if (isset($_GET['id_question'])) {
 
   $answers = $query2->fetchAll(PDO::FETCH_OBJ);
   // var_dump($answers);
+
+  // Si on est en mode édition de réponses
+  if (isset($_GET['edit']) && isset($_GET['id_answer'])) {
+      $answerEdit = getAnswerById($answers,intval($_GET['id_answer']));
+    }
 }
 
-if(isset($_POST['submit'])) {
+// click sur le bouton submit du formulaire d'insertion
+if(isset($_POST['insert'])) {
   // formulaire d'ajout d'une réponse envoyé
   // var_dump($_POST);
   $correct=0;
-  if(isset($_POST['correct'])) {
-    $correct= 1;
-  }
+  if(isset($_POST['correct'])) $correct= 1;
 
   // Enregistrment en DB
   $query = $db->prepare(
@@ -58,6 +75,33 @@ if(isset($_POST['submit'])) {
       ;
 }
 
+// click sur le bouton submit du formulaire de mise à jour
+if (isset($_POST['update'])) {
+
+  $correct=0;
+  if(isset($_POST['correct'])) $correct= 1;
+
+  $query = $db->prepare(
+    'UPDATE answer
+    SET body = :body, correct = :correct
+    WHERE id =  :id
+    ');
+  $result = $query->execute(array(
+    ':body' => $_POST['body'],
+    ':correct' => $correct,
+    ':id' => intval($_POST['id_answer'])
+  ));
+
+  // url de retour à la liste des réponses pour la question traitée
+  $url ='?route=answer/manage&id_question=' . $_POST['id_question'];
+
+  ($result)
+    ? header('location:' . $url)
+    : print('La mise à jour de la réponse a échoué');
+
+
+}
+
 ?>
 
 <h2>Question : <?= $title ?></h2>
@@ -71,8 +115,11 @@ if(isset($_POST['submit'])) {
       <?php else: ?>
       <h3>Liste des réponses</h3>
       <table class="table table-bordered table-striped">
+        <?php $i=0 ; // compteur
+        ?>
         <?php foreach($answers as $answer): ?>
           <tr>
+            <td><?=++$i ?></td>
             <td><?=$answer->body ?></td>
             <td>
               <?php
@@ -81,16 +128,19 @@ if(isset($_POST['submit'])) {
             </td>
             <td>
               <?php
-                $url = '?route=answer/delete&id_answer=' . $answer->id;
-                $url .= '&id_question=' . $id_question;
+                $urlDel = '?route=answer/delete&id_answer=' . $answer->id;
+                $urlDel .= '&id_question=' . $id_question;
+
+                $urlEdit ='?route=answer/manage&id_question=' . $id_question;
+                $urlEdit .='&edit=true&id_answer=' . $answer->id;
                ?>
               <a
               class="btn btn-default btn-xs"
-              href="#">Modifier</a>
+              href=<?= $urlEdit ?>>Modifier</a>
 
               <a
               class="btn btn-danger btn-xs"
-              href="<?= $url ?>">Supprimer</a>
+              href="<?= $urlDel ?>">Supprimer</a>
             </td>
           </tr>
         <?php endforeach ?>
@@ -98,6 +148,10 @@ if(isset($_POST['submit'])) {
       <?php endif ?>
     </div>
     <div class="col-md-4">
+
+      <?php if(!isset($_GET['edit'])) : ?>
+        <!-- Si le paramètre edit n'est pas dans l'URL on affiche -->
+        <!-- le formulaire d'ajout d'une réponse -->
       <h3>Ajouter une réponse</h3>
       <form class="" method="post" class="well">
 
@@ -108,13 +162,48 @@ if(isset($_POST['submit'])) {
 
         <div class="form-group">
           <label for="correct">Bonne réponse</label><br>
-          <input type="checkbox" name="correct">
+          <input type="checkbox" name="correct"/>
+        </div>
+
+
+        <input type="hidden" name="id_question" value="<?= $id_question ?>">
+        <input type="submit" name="insert" value="Enregistrer" class="btn btn-primary">
+      </form>
+
+    <?php else: ?>
+    <h3>Modifier la réponse</h3>
+      <form class="" method="post" class="well">
+
+        <div class="form-group">
+          <label for="body">Texte</label><br>
+          <textarea name="body" rows="4" cols="40" required><?= $answerEdit->body ?></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="correct">Bonne réponse</label><br>
+          <?php if($answerEdit->correct == 1): ?>
+          <input type="checkbox" name="correct" checked/>
+          <?php else: ?>
+          <input type="checkbox" name="correct"/>
+          <?php endif ?>
         </div>
 
         <input type="hidden" name="id_question" value="<?= $id_question ?>">
-        <input type="submit" name="submit" value="enregistrer" class="btn btn-primary">
+        <input type="hidden" name="id_answer" value="<?= $answerEdit->id ?>">
+        <input type="submit" name="update" value="Mettre à jour" class="btn btn-primary">
+        <?php
+        $url = '?route=answer/manage&id_question=' . $id_question;
+         ?>
+         <!--  Le lien annuler permet de quitter le mode edition -->
+         <!--  Les paramètres id et answer sont retirés de l'url -->
+        <a class="btn btn-default" href="<?= $url ?>">Annuler</a>
+
 
       </form>
+
+    <?php endif ?>
+
+
     </div>
   </div>
 

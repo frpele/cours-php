@@ -1,9 +1,20 @@
 <?php
 
+// fonction retournant le nbre de réponses associées à une question
+function getNbAnswers($db, $id_question) {
+  $query = $db->prepare(
+    'SELECT COUNT(*) FROM answer WHERE id_question = :id_question');
+  $query->execute(array(
+    ':id_question' =>$id_question
+  ));
+  $num = $query->fetch(PDO::FETCH_NUM);
+  return $num[0];
+}
+
 // 1 préparation de la requête
 $query =$db->prepare('SELECT * FROM question ORDER BY id DESC');
 
-// 2 Exectuyion
+// 2 Execution
 $query->execute();
 
 //3 Récupération des données (fetch)
@@ -17,15 +28,17 @@ $questions = $query-> fetchAll(PDO::FETCH_OBJ);
 <h2>Liste des questions</h2>
 <table class="table table-bordered table-striped">
   <tr>
+    <th>ID</th>
     <th>Intitulé</th>
     <th>Catégorie</th>
     <th>Niveau</th>
     <th>Actions</th>
   </tr>
-
+<?php $i=0; ?>
 <?php foreach ($questions as $question): ?>
 
 <tr>
+  <td><?= ++$i ?></td>
   <td><?=$question->title ?></td>
   <td><?=$question->category ?></td>
   <td><?=$question->level ?></td>
@@ -33,7 +46,8 @@ $questions = $query-> fetchAll(PDO::FETCH_OBJ);
 
     <a
     href="?route=answer/manage&id_question=<?= $question->id ?>"
-    class="btn btn-success btn-xs">Gérer les réponses</a>
+    class="btn btn-success btn-xs">
+    <?= getNbAnswers($db,$question->id )?> réponse(s)</a>
     <a
     href="?route=question/edit&id=<?= $question->id ?>"
     class="btn btn-primary btn-xs">Modifier</a>
