@@ -106,7 +106,6 @@ if (isset($_POST['update'])) {
 
 <h2>Question : <?= $title ?></h2>
 
-<!-- <div class="container"> -->
   <div class="row">
     <div class="col-md-8">
       <?php if(sizeof($answers) ==0): ?>
@@ -206,5 +205,3 @@ if (isset($_POST['update'])) {
 
     </div>
   </div>
-
-<!-- </div> -->
