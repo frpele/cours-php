@@ -45,12 +45,24 @@ if(isset($_POST['submit'])) {
       <tr>
         <th>ID</th>
         <th>Intitulé de la catégorie</th>
+        <th>Actions</th>
       </tr>
       <?php $i=0; ?>
       <?php foreach ($categories as $category): ?>
       <tr>
         <td><?=++$i ?></td>
         <td><?= ucfirst($category->name) ?></td>
+        <td>
+          <?php
+          $urlDel = '?route=category/delete&id_category=' . $category->id;
+           ?>
+          <a
+          href="<?= $urlDel ?>"
+          class="btn btn-danger btn-xs">Supprimer</a>
+
+        </td>
+
+
       </tr>
       <?php endforeach ?>
     </table>

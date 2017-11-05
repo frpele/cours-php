@@ -8,7 +8,8 @@ $routes = array (
   'answer/add'      => 'answer/add.php',
   'answer/manage'   => 'answer/manage.php',
   'answer/delete'   => 'answer/delete.php',
-  'category/list'   => 'category/list.php'
+  'category/list'   => 'category/list.php',
+  'category/delete'   => 'category/delete.php'
 
 );
  ?>
