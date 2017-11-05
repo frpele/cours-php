@@ -1,5 +1,7 @@
 <?php
 
+include('levels.php'); // accès à la variable $levels
+
 // fonction retournant le nbre de réponses associées à une question
 function getNbAnswers($db, $id_question) {
   // On fournit DB en entrée de la fonction afin qu'elle puisse
@@ -44,7 +46,11 @@ $questions = $query-> fetchAll(PDO::FETCH_OBJ);
   <td><?= ++$i ?></td>
   <td><?=$question->title ?></td>
   <td><?=$question->category ?></td>
-  <td><?=$question->level ?></td>
+  <?php foreach ($levels as $key => $level): ?>
+   <?php if($question->level == $key): ?>
+  <td><?= $level ?></td>
+  <?php endif ?>
+  <?php endforeach; ?>
   <td>
 
     <a

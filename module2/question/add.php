@@ -16,13 +16,12 @@ include('categories.php');// accès la variable categories
 
     //1. Préparation de la requête
     $query = $db->prepare(
-      'INSERT INTO question(title, category, level) VALUES(:title, :category, :level)'
+      'INSERT INTO question(title, level) VALUES(:title, :level)'
     );
 
     //2. Exécution
     $result = $query->execute(array(
       ':title'    => $_POST['title'],
-      ':category' => $_POST['category'],
       ':level'    => intval($_POST['level'])
     ));
 
@@ -53,7 +52,7 @@ include('categories.php');// accès la variable categories
       <select class="" name="category">
         <option value="0">Choisir une catégorie</option>
         <?php foreach($categories as $category):?>
-          <option><?= $category ?></option>
+          <option><?= ucfirst($category->name) ?></option>
         <?php endforeach ?>
       </select>
   </div>

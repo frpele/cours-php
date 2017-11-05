@@ -69,10 +69,10 @@ if (isset($_POST['submit'])) {
        <select class="" name="category">
          <option>Choisir une catégorie</option>
          <?php foreach($categories as $category):?>
-           <?php if($question->category == $category): ?>
-             <option selected><?= $category ?></option>
+           <?php if($question->category == ucfirst($category->name)): ?>
+             <option selected><?= ucfirst($category->name) ?></option>
           <?php else: ?>
-             <option ><?= $category ?></option>
+             <option ><?= ucfirst($category->name) ?></option>
          <?php endif ?>
          <?php endforeach ?>
        </select>
