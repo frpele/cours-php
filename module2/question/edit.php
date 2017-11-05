@@ -1,8 +1,6 @@
-<pre>
-<?php
-print_r($_GET);
-?>
-</pre>
+<!-- <pre>
+//?php print_r($_GET); ?>
+</pre> -->
 <?php
 include('categories.php');// accès la variable $categories
 include('levels.php'); // accès à la variable $levels
