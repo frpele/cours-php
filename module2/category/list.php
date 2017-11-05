@@ -61,18 +61,13 @@ if (isset($_POST['update'])) {
   ($result)
     ? header('location:?route=category/list')
     : print('La mise à jour de la categorie a échoué');
-
-
 }
-
 
 // var_dump($categories);
 
  ?>
 
-
 <h2>gestion des catégories</h2>
-
 
 <div class="row">
   <div class="col-md-8">
