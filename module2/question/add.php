@@ -16,12 +16,13 @@ include('categories.php');// accès la variable categories
 
     //1. Préparation de la requête
     $query = $db->prepare(
-      'INSERT INTO question(title, level) VALUES(:title, :level)'
+      'INSERT INTO question(title, category, level) VALUES(:title, :category, :level)'
     );
 
     //2. Exécution
     $result = $query->execute(array(
       ':title'    => $_POST['title'],
+      ':category'    => $_POST['category'],
       ':level'    => intval($_POST['level'])
     ));
 
