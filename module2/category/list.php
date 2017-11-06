@@ -1,5 +1,8 @@
 <?php
 
+include ('./categories.php');
+
+
 function getCategoryById($categories, $id) {
   // recherche une réponse identifiée dans un tableau de réponses
   $category = NULL;
@@ -12,56 +15,67 @@ function getCategoryById($categories, $id) {
   return $category;
 }
 
-
 // 1 préparation de la requête Liste des catégories
-$query =$db->prepare('SELECT * FROM category ORDER BY name');
-
+// $query =$db->prepare('SELECT * FROM category ORDER BY name ASC');
 // 2 Execution
-$query->execute();
-
+// $query->execute();
 //3 Récupération des données (fetch)
-$categories = $query-> fetchAll(PDO::FETCH_OBJ);
+// $categories = $query-> fetchAll(PDO::FETCH_OBJ);
+
+$categories = getCategories($db);
+
 
 // Si on est en mode édition de categories
 if (isset($_GET['edit']) && isset($_GET['id_category'])) {
     $categoryEdit = getCategoryById($categories,intval($_GET['id_category']));
   }
 
-
 // click sur le bouton submit du formulaire d'insertion
 if(isset($_POST['insert'])) {
 
-  $query2 = $db->prepare(
-    'INSERT INTO category(name) VALUES(:name)'
-    );
+// Validation des données
+// trim supprime les espaces éventuels en début et fin de chaine
+// strlen renvoie la longueur de la chaine
+  if(strlen(trim($_POST['name'])) < 3) {
 
-  $result = $query2->execute(array(
-      ':name' => $_POST['name']
-      ));
+    echo 'le nom de la categorie doit comporter au moins 3 caractères';
 
-  ($result)
-          ? header('location:?route=category/list')
-          : print('<p>L\'enregistrement de la catégorie a échoué</p>')
-          ;
+  } else {
+      $query2 = $db->prepare(
+        'INSERT INTO category(name) VALUES(:name)'
+        );
+
+      $result = $query2->execute(array(
+          ':name' => $_POST['name']
+          ));
+
+      ($result)
+      ? header('location:?route=category/list')
+      : print('L\'enregistremenet de la categorie a échoué');
+  }
 }
 
 // click sur le bouton submit du formulaire de mise à jour
 if (isset($_POST['update'])) {
+  if(strlen(trim($_POST['name'])) < 3) {
+    echo 'le nom de la categorie doit comporter au moins 3 caractères';
+  } else {
+    $query = $db->prepare(
+      'UPDATE category
+      SET name = :name
+      WHERE id =  :id
+      ');
+    $result = $query->execute(array(
+      ':name' => $_POST['name'],
+      ':id' => intval($_POST['id_category'])
+    ));
 
-  $query = $db->prepare(
-    'UPDATE category
-    SET name = :name
-    WHERE id =  :id
-    ');
-  $result = $query->execute(array(
-    ':name' => $_POST['name'],
-    ':id' => intval($_POST['id_category'])
-  ));
-
-  ($result)
-    ? header('location:?route=category/list')
-    : print('La mise à jour de la categorie a échoué');
+    ($result)
+      ? header('location:?route=category/list')
+      : print('La mise à jour de la categorie a échoué');
+  }
 }
+
 
 // var_dump($categories);
 
@@ -88,17 +102,13 @@ if (isset($_POST['update'])) {
           $urlDel = '?route=category/delete&id_category=' . $category->id;
           $urlEdit = '?route=category/list&edit=true&id_category=' . $category->id;
            ?>
-          <a
-          class="btn btn-default btn-xs"
+          <a class="btn btn-default btn-xs"
           href=<?= $urlEdit ?>>Modifier</a>
 
-          <a
-          href="<?= $urlDel ?>"
-          class="btn btn-danger btn-xs">Supprimer</a>
+          <a class="btn btn-danger btn-xs"
+          href="<?= $urlDel ?>">Supprimer</a>
 
         </td>
-
-
       </tr>
       <?php endforeach ?>
     </table>
@@ -111,10 +121,9 @@ if (isset($_POST['update'])) {
 
       <h3>Ajouter une catégorie</h3>
       <form class="" method="post" class="well">
-
         <div class="form-group">
           <label for="name">Intitulé de la catégorie</label><br>
-          <input class="form-control" type="text" name="name">
+          <input class="form-control" type="text" name="name" required>
         </div>
 
         <input type="submit" name="insert" value="Enregistrer" class="btn btn-primary">
@@ -123,16 +132,14 @@ if (isset($_POST['update'])) {
     <?php else: ?>
       <h3>Modifier la catégorie</h3>
       <form class="" method="post" class="well">
-
         <div class="form-group">
           <label for="name">Intitulé de la catégorie</label><br>
-          <input class="form-control" type="text" name="name" value="<?= $categoryEdit->name ?>">
+          <input class="form-control" type="text" name="name" value="<?= ucfirst($categoryEdit->name) ?>">
         </div>
         <input type="hidden" name="id_category" value="<?= $categoryEdit->id ?>">
         <input type="submit" name="update" value="Mettre à jour" class="btn btn-primary">
+        <a class="btn btn-default" href="<?= '?route=category/list' ?>">Annuler</a>
       </form>
-
-  </div>
-
+    </div>
     <?php endif ?>
 </div>

@@ -17,11 +17,19 @@ function getNbAnswers($db, $id_question) {
 }
 
 // 1 préparation de la requête
-$query =$db->prepare('SELECT * FROM question ORDER BY id DESC');
+//$query =$db->prepare('SELECT * FROM question ORDER BY id DESC');
 
+// La jointure permet de récupérer des informations situées
+// dans des tables différentes. La clé de jointure 'ON' exclut les lignes
+// qui ne vérifient l'égalité question.category =category.id
+$query = $db->prepare(
+' SELECT question.id, question.title, question.level,category.name AS category
+  FROM question
+  JOIN category ON question.category = category.id
+  ORDER BY question.id DESC
+');
 // 2 Execution
 $query->execute();
-
 //3 Récupération des données (fetch)
 $questions = $query-> fetchAll(PDO::FETCH_OBJ);
 
@@ -45,12 +53,8 @@ $questions = $query-> fetchAll(PDO::FETCH_OBJ);
 <tr>
   <td><?= ++$i ?></td>
   <td><?=$question->title ?></td>
-  <td><?=$question->category ?></td>
-  <?php foreach ($levels as $key => $level): ?>
-   <?php if($question->level == $key): ?>
-  <td><?= $level ?></td>
-  <?php endif ?>
-  <?php endforeach; ?>
+  <td><?=ucfirst($question->category) ?></td>
+  <td><?= getLevelName($levels, $question->level) ?></td>
   <td>
 
     <a

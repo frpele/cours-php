@@ -7,5 +7,9 @@ $levels = array (
 
 );
 
+function getLevelName($levels, $key) {
+  return $levels[$key];
+
+}
 
  ?>

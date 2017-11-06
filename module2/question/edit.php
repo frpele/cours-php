@@ -2,8 +2,9 @@
 //?php print_r($_GET); ?>
 </pre> -->
 <?php
-include('categories.php');// accès la variable $categories
+include('./categories.php');// accès la variable $categories
 include('levels.php'); // accès à la variable $levels
+$categories = getCategories($db);
 
 // var_dump($categories);
 
@@ -21,7 +22,7 @@ $question = $query-> fetch(PDO::FETCH_OBJ);// renvoie un objet
 if (isset($_POST['submit'])) {
   // 1/ validation des données
   $cond1 = $_POST['title']    != "";
-  $cond2 = $_POST['category'] != "0";
+  $cond2 = intval($_POST['category']) != "0";
   $cond3 = $_POST['level']    != "0";
 
   if ($cond1 && $cond2 && $cond3) {
@@ -67,10 +68,10 @@ if (isset($_POST['submit'])) {
        <select class="" name="category">
          <option>Choisir une catégorie</option>
          <?php foreach($categories as $category):?>
-           <?php if($question->category == ucfirst($category->name)): ?>
-             <option selected><?= ucfirst($category->name) ?></option>
+           <?php if($question->category == $category->id): ?>
+             <option selected value="<?= $category->id ?>"><?= ucfirst($category->name) ?></option>
           <?php else: ?>
-             <option ><?= ucfirst($category->name) ?></option>
+             <option value="<?= $category->id ?>" ><?= ucfirst($category->name) ?></option>
          <?php endif ?>
          <?php endforeach ?>
        </select>

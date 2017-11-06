@@ -1,9 +1,10 @@
 <?php
 
+define('URL_BASE','?route=category/list');
+
 if ( isset($_GET['id_category'])) {
 
-$id_category = $_GET['id_category'];
-
+$id_category = intval($_GET['id_category']);
 
 $query=$db->prepare(
   'DELETE FROM category
@@ -17,10 +18,10 @@ $result = $query->execute(array(
 // la variable url permet de retourner sur la page
 // de gestion des réponses pour la question traitée
 
-$url = '?route=category/list';
+// $url = '?route=category/list';
 
 ($result)
-? header('location:' . $url)
+? header('location:' . URL_BASE)
 : print ('la suppression de la catégorie a échoué');
 
 }

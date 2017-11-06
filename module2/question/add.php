@@ -1,5 +1,6 @@
 <?php
-include('categories.php');// accès la variable categories
+include('./categories.php');// accès la variable categories
+$categories = getCategories($db);
 // var_dump($db);
 
   if (isset($_POST['submit'])) {
@@ -22,7 +23,7 @@ include('categories.php');// accès la variable categories
     //2. Exécution
     $result = $query->execute(array(
       ':title'    => $_POST['title'],
-      ':category'    => $_POST['category'],
+      ':category' => intval($_POST['category']),
       ':level'    => intval($_POST['level'])
     ));
 
@@ -53,7 +54,7 @@ include('categories.php');// accès la variable categories
       <select class="" name="category">
         <option value="0">Choisir une catégorie</option>
         <?php foreach($categories as $category):?>
-          <option><?= ucfirst($category->name) ?></option>
+          <option value="<?= $category->id ?>"><?= ucfirst($category->name) ?></option>
         <?php endforeach ?>
       </select>
   </div>
