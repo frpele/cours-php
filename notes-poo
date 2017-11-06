@@ -3,3 +3,5 @@ objet : produits en série
 
 propriété : immobile (états) > déclaration de variables
 methode : en mouvement (actions)
+
+this. : membres de la même classe

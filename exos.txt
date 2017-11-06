@@ -1,0 +1,11 @@
+EXO
+
+Ajouter à la classe Color une méthode convertToRGB
+qui renverra la version RGB de la couleur défini
+en langue humaine de l'instaciation
+
+Exemple d'utilisation
+$color1->convertoRgb() // revoie '255,0,0' si $color1 a reçu 'red'
+
+
+Permettre dans l'instanciation de donner un nom aux objets products
