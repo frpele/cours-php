@@ -46,9 +46,17 @@ class QCM {
   }
 
   public function generate() {
+    // La jointure interne JOIN renverra nécessairement
+    // des questions qui ont des réponses
+    //Les questions sans réponse seront exclues
+    // La jointure interne est restrictive
+    // A la différence des jointures externes(LEFT JOIN et RIGHT JOIN)
+    //qui,elles, peuvent retourner des éléments sans qu'une table ait de
+    //correspondance dans l'autre
     $query = $this->db->prepare
-    ('SELECT *
+    ('SELECT question.title, answer.body, answer.id, answer.id_question
       FROM question
+      JOIN answer ON question.id = answer.id_question
       WHERE category = :category
       AND level = :level
       ');
@@ -57,7 +65,7 @@ class QCM {
     $query->bindValue(':category',$this->getCategory(), PDO::PARAM_INT);
     $query->bindValue(':level',$this->getLevel(), PDO::PARAM_INT);
     $query->execute();
-    
+
     return $query->fetchAll(PDO::FETCH_OBJ);
   }
 

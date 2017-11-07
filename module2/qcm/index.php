@@ -2,7 +2,7 @@
 include('./categories.php');
 $categories =getCategories($db);
 include('./levels.php');
-include('QCM.php'); // incluesion de la callse QCM
+include('QCM.php'); // inclusion de la classe QCM
 
 if (isset($_POST['submit'])) {
   $qcm = new QCM(
@@ -15,15 +15,13 @@ if (isset($_POST['submit'])) {
 }
  ?>
 
-
 <h3>Génération d'un QCM</h3>
-
 <form class="form-inline well" method="POST">
   <div class="form-group">
     <select class="" name="category">
       <option value="0">Choisir une catégorie</option>
       <?php foreach ($categories as $category): ?>
-        <option value="<?= $category->id ?>"><?= $category->name ?></option>
+        <option value="<?= $category->id ?>"><?= ucfirst($category->name) ?></option>
       <?php endforeach ?>
     </select>
   </div>
