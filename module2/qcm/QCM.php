@@ -46,11 +46,20 @@ class QCM {
   }
 
   public function generate() {
-    $query = $this->db->prepare('SELECT * FROM question');
+    $query = $this->db->prepare
+    ('SELECT *
+      FROM question
+      WHERE category = :category
+      AND level = :level
+      ');
+    // La méthode bindValue est une autre façon d'associer des valeurs
+    // aux placeholders
+    $query->bindValue(':category',$this->getCategory(), PDO::PARAM_INT);
+    $query->bindValue(':level',$this->getLevel(), PDO::PARAM_INT);
     $query->execute();
+    
     return $query->fetchAll(PDO::FETCH_OBJ);
   }
-
 
 }
 
