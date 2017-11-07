@@ -14,5 +14,4 @@ $question->addAnswer($answer3);
 echo $question->getAnswers()[0]->getBody();
 
 // echo $question->
-
  ?>
