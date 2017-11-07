@@ -28,9 +28,9 @@ class Player {
   }
 
   public function ageAfterNbYears($nbYears) {
-    $this->age+=$nbYears; // valeur modifiée
-    return $this->age; // retourne la nouvelle valeur
+    return $this->age+$nbYears; // valeur modifiée
   }
+
 }
 
 
@@ -57,6 +57,9 @@ $player1->lastname ="Pirlo";
 
 $color1 =new Color("red");
 $color2 =new Color("orange");
+echo $color1->colorHuman;
+echo '<p></p>';
+echo $color2->colorHuman;
 
 // echo $color1->convertToHexa(); // FF0000
 // echo $color1->convertToRgb(); //
@@ -65,17 +68,30 @@ $color2 =new Color("orange");
 $product1 = new Product("Tondeuse");
 $product1->setPrice(14.6);
 $product1->setAvailable(true);
-var_dump($product1);
+// var_dump($product1);
+// echo $product1->CONSTANTE_DE_CLASSE; impossible !!!!!!
+
+// echo Product::CONSTANTE_DE_CLASSE;
+// echo $product1->test;
+// echo $product1->test2;
+
+echo '<p></p>';
 
 $book1 =new Book("Le Père Goriot");
-$book1->setPrice(5.40);
+// $book1->setPrice(5.40);
 $book1->setAvailable(false);
 $book1->setNbPages(450);
-var_dump($book1);
+// var_dump($book1);
+// echo $book1->getPrice();
+// echo $book1->test;
+// echo $book1->test2; // Fatal error : propriété protégée
+// echo $book1->getTest2();
+echo '<p></p>';
 //
 $weapon1 = new Weapon("Couteau");
 $weapon1->setPrice(60);
 $weapon1->setAvailable(true);
 $weapon1->setCategory(6);
-var_dump($weapon1);
+// var_dump($weapon1);
+echo '<p></p>';
  ?>

@@ -2,13 +2,23 @@
 
 class Product {
 
-  private $price = NULL;
+  //constante de classe
+//elles ne sont pas transmises aux objets
+// statiques et non visibles, uniquement accès en lecture
+  const CONSTANTE_DE_CLASSE = "Je suis une constante de classe";
+
+
+
+  private $price = 99.99;
   private $available = false;
   private $name = NULL;
 
+  public $test ="public test Product";
+  protected $test2 ="protected test2 Product";
+
   public function __construct($name) {
 
-  $this->setName($name);
+    $this->setName($name);
   }
 
   public function getName() {

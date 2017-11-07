@@ -5,3 +5,5 @@ propriété : immobile (états) > déclaration de variables
 methode : en mouvement (actions)
 
 this. : membres de la même classe
+
+private n'est pas écrasable

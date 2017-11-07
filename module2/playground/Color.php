@@ -1,6 +1,8 @@
 <?php
 
 class Color {
+
+  const DEFAULT_COLOR = 'black';
   public $colorHuman = NULL;
 
   private $colors =array(
@@ -15,6 +17,12 @@ class Color {
       'hexa'=>'00FF00',
       'rgb' =>'0,255,0'
     ),
+
+    array(
+      'human'=>'black',
+      'hexa'=>'000000',
+      'rgb' =>'0,0,0'
+    ),
   );
 
   // Constructeur : foncion déclenché automatiquement
@@ -23,12 +31,28 @@ class Color {
   public function __construct($colorHuman) {
   // Hydratation : "alimente" les propriétés en données
   // au constructeur au moment de l'instanciation
-  $this->colorHuman = $colorHuman;
+    if ($this->checkColor($colorHuman)) {
+      // couleur donnée à l'instanciation trouvée par la méthode privée
+      //checkColor -> hydratation
+      $this->colorHuman = $colorHuman;
+    } else {
+      $this->colorHuman = self::DEFAULT_COLOR;
+    }
+  }
+
+  private function checkColor($colorStr) {
+    $colorHumanFound = false;
+    foreach ($this->colors as $color) {
+      if ($color['human'] == $colorStr) {
+        $colorHumanFound = true;
+        break;
+      }
+    }
+    return $colorHumanFound;
   }
 
   public function convertToHexa() {
     $colorHexa = NULL;
-
     foreach ($this->colors as $color) {
       if ($color['human'] == $this->colorHuman) {
         $colorHexa = $color['hexa'];
@@ -40,7 +64,6 @@ class Color {
 
   public function convertToRgb() {
     $colorRgb = NULL;
-
     foreach ($this->colors as $color) {
       if ($color['human'] == $this->colorHuman) {
         $colorRgb = $color['rgb'];
@@ -49,8 +72,6 @@ class Color {
     }
     return $colorRgb;
   }
-
-
 
 }
 
