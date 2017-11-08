@@ -1,10 +1,16 @@
 <?php
 
+include_once('Answer.php');
+include_once('Question.php');
+
+
 class QCM {
   private $db = NULL;
   private $category = NULL;
   private $level = NULL;
   private $nb_questions = NULL ;
+  private $questions = array(); // servira à stocker les résultats
+  // de la méthode générate
 
   public function __construct($db, $category, $level, $nb_questions) {
     $this->setDb($db);
@@ -23,6 +29,8 @@ class QCM {
   public function getNbQuestions() {
     return $this->nb_questions;
   }
+  public function getQuestions() {
+    return $this->questions;}
 
   // setters
   private function setDb(PDO $db) {
@@ -42,8 +50,11 @@ class QCM {
   }
   public function setNbQuestions($nb_questions) {
     $this->nb_questions = $nb_questions;
-    return $this->nb_questions;
-  }
+    return $this->nb_questions;}
+  private function setQuestions(array $questions) {
+    $this->questions = $questions;
+    return $this->questions;}
+
 
   public function generate() {
     // La jointure interne JOIN renverra nécessairement
@@ -54,22 +65,85 @@ class QCM {
     //qui,elles, peuvent retourner des éléments sans qu'une table ait de
     //correspondance dans l'autre
     $query = $this->db->prepare
-    ('SELECT question.title, answer.body, answer.id, answer.id_question
-      FROM question
-      JOIN answer ON question.id = answer.id_question
-      WHERE category = :category
-      AND level = :level
-      ');
-    // La méthode bindValue est une autre façon d'associer des valeurs
-    // aux placeholders
+      ('SELECT question.title, question.category, question.level,
+        answer.body,answer.correct, answer.id AS id_answer, answer.id_question
+        FROM question
+        JOIN answer ON question.id = answer.id_question
+        WHERE category = :category
+        AND level = :level
+        ORDER BY question.id ASC
+        ');
+      // La méthode bindValue est une autre façon d'associer des valeurs
+      // aux placeholders
     $query->bindValue(':category',$this->getCategory(), PDO::PARAM_INT);
     $query->bindValue(':level',$this->getLevel(), PDO::PARAM_INT);
     $query->execute();
 
-    return $query->fetchAll(PDO::FETCH_OBJ);
+    $results = $query->fetchAll(PDO::FETCH_OBJ);
+    if (sizeof($results) > 0) {
+      $resultsTransformed = $this->transformData($results);
+      return $this->setQuestions($resultsTransformed);
+    } else {
+    return false;
+    }
+
   }
 
+  private function transformData($rows) {
+    // fonction destinée à transformer les données reçus par la méthode générate
+    // en tableau d'objets questions. Chaque objet question contiendra un tableau
+    // d'objets Answer
+    $questions= [];
+
+    $id_question = $rows[0]->id_question; // Identifiant de la première question
+    $question = new Question(NULL, NULL, NULL, NULL);
+    $i = -1;//indice permettant d'insérer une question au bon endroit
+    // dans le tableau des questions
+    $firstQuestion = true;
+
+    foreach($rows as $row) {
+
+      $answer = new Answer(
+        $row->id_answer, $row->body, $row->correct,$row->id_question);
+
+      if ($row->id_question != $id_question || $firstQuestion) {
+        $i++;
+        // changement de question
+        $question = new Question(
+          $row->id_question, $row->title, $row->category,$row->level);
+
+        $questions[$i] = $question;
+
+        $id_question = $row->id_question;
+        $firstQuestion = false;
+      }
+      $questions[$i]->addAnswer($answer);
+    }
+    return $questions;
+  }
+
+  public function processChoices($choices) {
+    // $results =0;
+    foreach($this->getQuestions() as $question) {
+      $question_id = strval($question->getId()); // 14=> "14"
+      // Cette variable correspond au tableau de réponses cochées par le client
+      $client_answers = $choices[$question_id]; // choices ["14"]
+
+      // Boucle sur les réponses du client
+      foreach ($client_answers as $client_answer) {
+        echo 'id question: '. $question_id .' et id de la réponse ' . $client_answer . '<br>';
+
+        // comparaison avec les réponses stockées dans l'objet question
+        foreach($question->getAnswers() as $answer) {
+          if ($answer->getId() == intval($client_answer)) {
+            if ($answer->getCorrect() == 1) {
+              echo "bonne réponse !";
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
-
- ?>
+?>

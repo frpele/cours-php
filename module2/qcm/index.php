@@ -11,7 +11,27 @@ if (isset($_POST['submit'])) {
     $_POST['level'],
     $_POST['nb_questions']
   );
-  var_dump($qcm->generate());
+  $questions = $qcm->generate(); // retourne un tableau d'objets Question
+
+  // echo'<pre>';
+  // print_r($questions);
+  // echo'</pre>';
+
+}
+
+if (isset($_POST['validate'])) {
+// var_dump($_POST
+// On reconstitue l'objet QCM perdu en raison de la nouvelle requete http
+$qcm = new QCM(
+  $db,
+  $_POST['category'],
+  $_POST['level'],
+  $_POST['nb_questions']
+);
+
+  $questions = $qcm->generate();
+  $qcm->processChoices($_POST);
+
 }
  ?>
 
@@ -43,3 +63,39 @@ if (isset($_POST['submit'])) {
   <input type="submit" name="submit" value="Générer" class="btn btn-primary">
 
 </form>
+
+<div>
+
+<?php
+if (isset($qcm) && $questions == false) {
+  echo '<div class="alert alert-warning">';
+  echo 'Aucune question ne correspond aux critères de recherche';
+  echo'</div>';
+}
+?>
+
+<?php if (isset($_POST['submit']) && $questions != false): ?>
+
+  <form method="POST">
+  <?php foreach ($questions as $question): ?>
+    <div>
+      <h4><?= $question->getTitle() ?></h4>
+    <?php foreach($question->getAnswers() as $answer): ?>
+      <div>
+        <input
+        value="<?= $answer->getId() ?>"
+        name="<?= $question->getId() ?>[]"
+        type="checkbox">
+        <?= $answer->getBody() ?>
+      </div>
+    <?php endforeach  ?>
+    </div>
+  <?php endforeach  ?>
+  <input type="hidden" name="category" value="<?=$qcm->getCategory()?>">
+  <input type="hidden" name="level" value="<?=$qcm->getLevel()?>">
+  <input type="hidden" name="nb_questions" value="<?=$qcm->getNbQuestions()?>">
+  <input type="submit" name="validate" value="Valider" class="btn btn-primary">
+  </form>
+<?php endif ?>
+
+</div>
