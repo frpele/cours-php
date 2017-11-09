@@ -123,27 +123,43 @@ class QCM {
   }
 
   public function processChoices($choices) {
-    // $results =0;
+    // $choices correspond à $_POST
+    $results =0; // variable servant au cumul des bonnes réponses
+    $result = 0; // variable servant à recevoir le résultat de l'évaluation
+    // d'une question
+    // Boucle de niveau 1
     foreach($this->getQuestions() as $question) {
       $question_id = strval($question->getId()); // 14=> "14"
       // Cette variable correspond au tableau de réponses cochées par le client
+      // conversion de l'id en chaine de caractères afin d'établir
+      // la correspondance avec la clé du tableau associatif choices
       $client_answers = $choices[$question_id]; // choices ["14"]
+      var_dump($client_answers);
 
-      // Boucle sur les réponses du client
+      // Boucle 2 sur les réponses du client
       foreach ($client_answers as $client_answer) {
-        echo 'id question: '. $question_id .' et id de la réponse ' . $client_answer . '<br>';
+        // echo 'id question: '. $question_id .' et id de la réponse ' . $client_answer . '<br>';
 
-        // comparaison avec les réponses stockées dans l'objet question
+        // boucle 3 comparaison avec les réponses stockées dans l'objet question
         foreach($question->getAnswers() as $answer) {
           if ($answer->getId() == intval($client_answer)) {
+            // on vérifie que la réponse est correcte
             if ($answer->getCorrect() == 1) {
-              echo "bonne réponse !";
+              $result++;
+            } else {
+             $result--;
             }
           }
-        }
-      }
-    }
-  }
+        } // fin de la boucle 3
+      } // fin de la boucle 2
+      if($result < 0) $result =0;
+      $results += $result; // on ajoute à results (variable de cumul)
+      // le résultat de la quesiton quu'on vien de traiter
+      $result =0; // reinitialisation de la variable afin de la rendre
+      // opérationnelle pour la question suivante
+    } // fin de la boucle 1
+    return $results;
+  } // fin de la méthode process choices
 }
 
 ?>

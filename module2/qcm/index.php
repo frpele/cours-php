@@ -29,8 +29,9 @@ $qcm = new QCM(
   $_POST['nb_questions']
 );
 
-  $questions = $qcm->generate();
-  $qcm->processChoices($_POST);
+  $questions = $qcm->generate(); // génération du formaulaire
+  $results = $qcm->processChoices($_POST); // traitement des choix client
+  echo'<p>Vous avez obtenu '. $results. ' bonne(s) réponse(s)</p>';
 
 }
  ?>

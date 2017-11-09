@@ -9,7 +9,9 @@ $routes = array (
   'answer/delete'   => 'answer/delete.php',
   'category/list'   => 'category/list.php',
   'category/delete' => 'category/delete.php',
-  'qcm'             => 'qcm/index.php'
+  'qcm'             => 'qcm/index.php',
+  'login'           => 'login/index.php',
+  'logout'           => 'login/logout.php'
 
 );
  ?>

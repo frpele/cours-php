@@ -1,4 +1,6 @@
 <?php
+session_start(); // ouverture /accès session
+
 include('routes.php');
 $db = new PDO('mysql:host=localhost;dbname=quizz;charset=utf8','root', 'caze6294');
 
@@ -22,10 +24,24 @@ if (isset($_GET['route'])) {
         <h1>Module 2</h1>
         <nav>
           <ul class="nav nav-tabs">
+
+            <?php if(isset($_SESSION['admin'])): ?>
             <li><a href="?route=question/list">Liste des questions</a></li>
             <li><a href="?route=question/add">Ajouter une question</a></li>
             <li><a href="?route=category/list">Gérer les catégories</a></li>
-            <li><a href="?route=qcm">QCM</a></li>
+            <?php endif ?>
+
+            <?php if(isset($_SESSION['admin'])): ?>
+                <li>
+                  <a href="?route=logout">
+                    <span>Bienvenue à <strong> <?= $_SESSION['admin'] ?></strong></span>
+                    Deconnexion
+                  </a>
+                </li>
+
+            <?php else: ?>
+                <li><a href="?route=login">Connexion</a></li>
+            <?php endif ?>
           </ul>
         </nav>
       </header>
