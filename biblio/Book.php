@@ -31,7 +31,7 @@ class Book {
     return $this->db;
   }
 
-  public function list() {
+  public function getBooks() {
 
     $query = $this->db->prepare
     ('SELECT book.title, book.id as id_book,
@@ -49,19 +49,21 @@ class Book {
     return $books;
   }
 
-    public function addBook() {
+  public function addBook() {
 
-       $query = $this->db->prepare
-       ('INSERT INTO book (title, isbn, pages, id_author) VALUES (:title, :isbn, :pages, id_author)'
-          );
+   $query = $this->db->prepare
+     ('INSERT INTO book (title, isbn, pages, id_author) VALUES (:title, :isbn, :pages, id_author)'
+        );
 
-        //2. exécution
-        // intval convertit la valeur en entier
-        $result = $query->execute(array(
-          ':title'      => $_POST['title'],
-          ':category'   => intval($_POST['category']),
-          ':level'      => intval($_POST['level'])
-          ));
+    // la méthode bindValue est une autre façon d'associer des valeurs
+    // aux placeholders (binding)
+    $query->bindValue(':title', $this->getTitle(), PDO::PARAM_INT);
+    $query->bindValue(':isbn', $this->getIsbn(), PDO::PARAM_INT);
+    $query->bindValue(':pages', $this->getPages(), PDO::PARAM_INT);
+    $query->bindValue(':id_author', $this->getId(), PDO::PARAM_INT);
+    $query->execute();
+
+    $results = $query->fetchAll(PDO::FETCH_OBJ);
 
     }
 

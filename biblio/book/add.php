@@ -1,19 +1,24 @@
 <?php
-include('./Book.php');
+// include('./Book.php');
+include('./Author.php');
 
-// if (isset($_POST['submit'])) {
+$author = new Author($db, NULL, NULL, NULL, NULL, NULL);
+
+$authors = $author->getAuthors();// retourne un tableau d'objets books
+
+if (isset($_POST['submit'])) {
   //var_dump($_POST);
   // on reconstitue l'objet $book "perdu" en raison de la nouvelle
   // requête HTTP
-  // $book = new Book(
-//     $db,
-//     $id,
-//     $_POST['title'],
-//     $_POST['isbn'],
-//     $_POST['pages'],
-//     $_POST['id_author']
-//   );
-// }
+  $book = new Book(
+    $db,
+    NULL,
+    $_POST['title'],
+    $_POST['isbn'],
+    $_POST['pages'],
+    $_POST['id_author']
+  );
+}
 
  ?>
 
@@ -24,6 +29,15 @@ include('./Book.php');
   <div class="form-group">
     <label>Titre du livre</label>
     <input type="text" class="form-control" name="title" required>
+  </div>
+
+  <div class="form-group">
+      <select class="" name="author">
+        <option value="0">Sélectionnez un auteur</option>
+        <?php foreach($authors as $author):?>
+          <option value="<?= $author->id ?>"><?= ucfirst($author->lastname) ?></option>
+        <?php endforeach ?>
+      </select>
   </div>
 
   <div class="form-group">
