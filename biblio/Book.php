@@ -35,7 +35,7 @@ class Book {
 
     $query = $this->db->prepare
     ('SELECT book.title, book.id as id_book,
-      book.id_author, author.lastname
+      book.id_author, author.lastname as author
       FROM author
       JOIN book ON author.id = book.id_author
       ORDER BY book.title ASC
