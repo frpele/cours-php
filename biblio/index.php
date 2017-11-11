@@ -24,7 +24,7 @@ if (isset($_GET['route'])) {
           <ul class="nav nav-tabs">
             <li><a href="?route=book/list">Liste des livres</a></li>
             <li><a href="?route=book/add">Ajouter un livre</a></li>
-            <li><a href="?route=author/list">auteurs</a></li>
+            <li><a href="?route=author/list">Gérer les auteurs</a></li>
           </ul>
         </nav>
       </header>

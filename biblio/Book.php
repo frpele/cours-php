@@ -47,14 +47,26 @@ class Book {
     $books = $query-> fetchAll(PDO::FETCH_OBJ);
 
     return $books;
+  }
+
+    public function addBook() {
+
+       $query = $this->db->prepare
+       ('INSERT INTO book (title, isbn, pages, id_author) VALUES (:title, :isbn, :pages, id_author)'
+          );
+
+        //2. exécution
+        // intval convertit la valeur en entier
+        $result = $query->execute(array(
+          ':title'      => $_POST['title'],
+          ':category'   => intval($_POST['category']),
+          ':level'      => intval($_POST['level'])
+          ));
+
+    }
 
   }
 
-
-
-
-
-}
 
 
 
