@@ -29,7 +29,7 @@ $books = $book->getBooks();// retourne un tableau d'objets books
     href="#"
     class="btn btn-primary btn-xs">Modifier</a>
     <a
-    href="#"
+    href="?route=book/delete&id_book=<?= $book->id ?>"
     class="btn btn-danger btn-xs">Supprimer</a>
 
   </td>

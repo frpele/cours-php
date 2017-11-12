@@ -45,6 +45,24 @@ class Author {
     return $authors;
   }
 
+  public function addAuthor() {
+
+    $query = $this->db->prepare
+     ('INSERT INTO author (firstname, lastname, birth_year,country)
+     VALUES (:firstname, :lastname, :birth_year, :country)'
+        );
+
+    $result = $query->execute(array(
+      ':firstname'  => $_POST['firstname'],
+      ':lastname'   => ($_POST['lastname']),
+      ':birth_year' => intval($_POST['birth_year']),
+      ':country'    => ($_POST['country'])
+        ));
+
+    return $result;
+
+    }
+
 }
 
 

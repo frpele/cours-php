@@ -10,9 +10,9 @@ $authors = $author->getAuthors();
 if (isset($_POST['submit'])) {
 
 
-  var_dump($_POST);
+  // var_dump($_POST);
   $book = new Book($db, NULL, NULL, NULL, NULL, NULL);
-  $result = $book->addBook();// retourne un tableau d'objets books
+  $result = $book->addBook();
 
   ($result)
       ? header('location:?route=book/list')

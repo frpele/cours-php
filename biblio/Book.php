@@ -34,7 +34,7 @@ class Book {
   public function getBooks() {
 
     $query = $this->db->prepare
-    ('SELECT book.title, book.id as id_book,
+    ('SELECT book.title, book.id,
       book.id_author, author.lastname as author
       FROM author
       JOIN book ON author.id = book.id_author
@@ -64,6 +64,18 @@ class Book {
 
     return $result;
 
+    }
+
+    public function deleteBook($id_book) {
+
+      $query=$this->db->prepare(
+        'DELETE FROM book WHERE id = :id_book');
+
+      $result = $query->execute(array(
+        ':id_book' =>$id_book
+      ));
+
+    return $result;
     }
 
   }
