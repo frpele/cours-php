@@ -5,6 +5,8 @@ include('./Book.php');
 $book = new Book($db, NULL, NULL, NULL, NULL, NULL);
 
 $books = $book->getBooks();// retourne un tableau d'objets books
+
+
  ?>
 
 <h2>Liste des livres</h2>
