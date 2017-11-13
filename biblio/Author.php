@@ -1,18 +1,22 @@
 <?php
 
+// Autre méthode on ne crée pas de $db
+// Aucune opération den bbd dans cette classe
+// Comme dans Symfony, on utilisera une classe Manager
+// pour les opération de base de données
+
 class Author {
-  private $db = NULL;
-  private $id = NULL;
+  // private $db = NULL; // injection de dépendance
+  private $id;
   private $firstname = NULL;
   private $lastname = NULL;
   private $birth_year = NULL;
   private $country = NULL;
   // private $books = array(); // propriété permettant de stocker les livres des auteurs
 
-  public function __construct($db, $id, $firstname, $lastname, $birth_year, $country) {
+  public function __construct($firstname, $lastname, $birth_year, $country) {
     // assignation directe ans setters
-    $this->setDb($db);
-    $this->id = $id;
+    // $this->setDb($db);
     $this->firstname = $firstname;
     $this->lastname = $lastname;
     $this->birth_year = $birth_year;
@@ -24,6 +28,11 @@ class Author {
   public function getLastname() { return $this->lastname;}
   public function getBirthYear() { return $this->birth_year;}
   public function getCountry() { return $this->country;}
+
+  public function setId($id) {
+    $this->id = $id;
+    return $this->id;
+  }
 
   private function setDb(PDO $db) {
     $this->db = $db;

@@ -1,11 +1,29 @@
 <?php
 
-include('./Book.php');
+// include('./Book.php');
+// $book = new Book($db, NULL, NULL, NULL, NULL, NULL);
+// $books = $book->getBooks();// retourne un tableau d'objets books
+include_once('./Author.php');
+include_once('./author/AuthorManager.php');
 
-$book = new Book($db, NULL, NULL, NULL, NULL, NULL);
+include_once('./Book.php');
+include_once('./book/BookManager.php');
 
-$books = $book->getBooks();// retourne un tableau d'objets books
+$author_manager = new AuthorManager($db);
+$authors = $author_manager->list();
 
+if (isset($_POST['submit'])) {
+  // créer on objet de type de Book
+  $book = new Book(
+    $_POST['title'],
+    $_POST['isbn'],
+    intval($_POST['nb_pages'])
+  );
+
+  $author = $authorManager->getById(intval($_POST['author']));
+  $book->setAuthor($author);
+
+}
 
  ?>
 
@@ -22,8 +40,8 @@ $books = $book->getBooks();// retourne un tableau d'objets books
 
 <tr>
   <td><?= ++$i ?></td>
-  <td><?=$book->title ?></td>
-  <td><?=$book->author ?></td>
+  <td><?=$book->getTitle() ?></td>
+  <td><?=$book->getAuthor() ?></td>
   <td>
     <a
     href="#"
