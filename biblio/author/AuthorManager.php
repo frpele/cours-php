@@ -25,30 +25,28 @@ Class AuthorManager {
 
   public function list() {
     $query = $this->db->prepare
-       ('SELECT book.title, book.id,
-       book.id_author, author.lastname as author
-       FROM author
-       JOIN book ON author.id = book.id_author
-       ORDER BY book.title ASC
+       ('SELECT *
+         FROM author
+         ORDER BY lastname ASC
        ');
     $query->execute();
 
     $results = $query-> fetchAll(PDO::FETCH_OBJ);
-    $book =array();
+    $authors =array();
     // transformation des résultats sql en objet de type author
     foreach($results as $r) {
       // A chaque itération nous créeons un nouvel objet Author
 
-      $book = new Book($r->title,$r->isbn,$r->pages);
+      $author = new Author($r->firstname,$r->lastname,$r->birth_year,$r->country);
       // nous renseignons également l'id de l'author via le setter approprié
-      $book->setId($r->id);
-      $author->setAuthor()->setId()
+      $author->setId($r->id);
 
       // ajout de l'author dans le tableau
-      array_push($books, $book);
+      array_push($authors, $author);
       }
-      return $books;
-  }
+      return $authors;
+    }
+
 
   public function deleteById($id) {
     $query = $this->prepare('DELETE FROM author WHERE id = :id');
