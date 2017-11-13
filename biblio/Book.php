@@ -1,11 +1,10 @@
 <?php
 class Book {
-  private $db = NULL;
   private $id = NULL;
   private $title = NULL;
   private $isbn = NULL;
   private $pages = NULL;
-  private $id_author = NULL;
+  private $author;
 
   public function __construct($title, $isbn,$pages) {
     // assignation directe ans setters
@@ -21,8 +20,12 @@ class Book {
   // public function getIdAuthor() { return $this->id_author;}
   public function getAuthor() { return $this->author;}
 
-  public function setAuthor(Author $author) {
+  public function setId($id) {
+    $this->id = $id;
+    return $this->id;
+  }
 
+  public function setAuthor(Author $author) {
     $this->$author = $author;
     return $this->author;
   }

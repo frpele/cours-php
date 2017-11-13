@@ -10,25 +10,26 @@ class BookManager {
   public function list() {
     $query = $this->db->prepare
        ('SELECT *
-         FROM author
-         ORDER BY lastname ASC
+         FROM book
+         ORDER BY title ASC
        ');
     $query->execute();
 
     $results = $query-> fetchAll(PDO::FETCH_OBJ);
-    $authors =array();
-    // transformation des résultats sql en objet de type author
+    $books =array();
+    // transformation des résultats sql en objet de type book
     foreach($results as $r) {
-      // A chaque itération nous créeons un nouvel objet Author
+      // A chaque itération nous créeons un nouvel objet book
 
-      $author = new Author($r->firstname,$r->lastname,$r->birth_year,$r->country);
+      $book = new Book($r->title,$r->isbn,$r->pages);
       // nous renseignons également l'id de l'author via le setter approprié
-      $author->setId($r->id);
+      $book->setId($r->id);
+      $book->setAuthor()->setId($r->author);
 
       // ajout de l'author dans le tableau
-      array_push($authors, $author);
+      array_push($books, $book);
       }
-      return $authors;
+      return $books;
   }
 
   public function deleteById($id) {
