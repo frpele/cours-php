@@ -15,7 +15,7 @@ $book_manager = new BookManager($db); // gestionnaire de livres
 
 $books = $book_manager->list();
 $author = $authorManager->getById($book->author);
-$book->setAuthor($author);
+// $book->setAuthor($author);
 
 if (isset($_POST['submit'])) {
   // créer on objet de type de Book
