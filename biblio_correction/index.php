@@ -1,6 +1,6 @@
 <?php
 include('routes.php');
-$db = new PDO('mysql:host=localhost;dbname=biblio;charset=utf8', 'root', 'paris');
+$db = new PDO('mysql:host=localhost;dbname=biblio;charset=utf8', 'root', 'caze6294');
 if (isset($_GET['route'])) $route = $_GET['route'];
 ?>
 

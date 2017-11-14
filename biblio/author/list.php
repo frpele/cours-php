@@ -1,49 +1,25 @@
 <?php
 
 include('./Author.php');
-include('AuthorManager.php');
 
-// $author = new Author($db, NULL, NULL, NULL, NULL);
-// $authors = $author->getAuthors();
+$author = new Author($db, NULL, NULL, NULL, NULL, NULL);
 
-$author_manager = new AuthorManager($db);
+$authors = $author->getAuthors();
+
 if (isset($_POST['submit'])) {
-  // $result = $author->addAuthor();// retourne un tableau d'objets books
-  $author = new Author(
-    $_POST['firstname'],
-    $_POST['lastname'],
-    $_POST['birth_year'],
-    $_POST['country']
-  );
 
-  // On fournit l'objet $author au manager pour des opération en BD
-  // et teste le cas échec
-  if($author_manager->save($author) == 0)
-    echo '<p>L\'enregistrement de la réponse a échoué</p>';
+  // var_dump($_POST);
+  $author = new Author($db, NULL, NULL, NULL, NULL, NULL);
+  $result = $author->addAuthor();// retourne un tableau d'objets books
 
-
-
-  // ($result)
-  //   ? header('location:?route=author/list')
-  //   : print('<p>L\'enregistrement de la réponse a échoué</p>')
-  //   ;
+  ($result)
+      ? header('location:?route=author/list')
+      : print('<p>L\'enregistrement de la réponse a échoué</p>')
+      ;
 }
 
 
-// Action sur auteur
-if (isset($_GET['action'])) {
-  $action = $_GET['action'];
-  $author_id = $_GET['id'];
-  // Suppression
-  if ($action =='delete')  {
-    if ($author_manager->deleteById($author_id) == 0)
-    echo '<p>L\'enregistrement de la réponse a échoué</p>';
-    }
-}
-
-$authors =$author_manager->list();
-
-?>
+  ?>
 
 <h2>Gérer les auteurs</h2>
 
@@ -64,18 +40,17 @@ $authors =$author_manager->list();
 
       <tr>
         <td><?= ++$i ?></td>
-        <td><?=$author->getFirstname() ?></td>
-        <td><?=$author->getLastname() ?></td>
-        <td><?=$author->getBirthYear() ?></td>
-        <td><?=$author->getCountry() ?></td>
+        <td><?=$author->firstname ?></td>
+        <td><?=$author->lastname ?></td>
+        <td><?=$author->birth_year ?></td>
+        <td><?=$author->country ?></td>
         <td>
           <a
           href="#"
           class="btn btn-primary btn-xs">Modifier</a>
           <a
-            class="btn btn-danger btn-xs"
-            href="?route=author&action=delete&id=<?= $author->getId() ?>">
-            Supprimer</a>
+          href="#"
+          class="btn btn-danger btn-xs">Supprimer</a>
 
         </td>
       </tr>
