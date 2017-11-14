@@ -13,14 +13,13 @@ class DefaultController extends Controller
      */
     public function homeAction(Request $request)
     {
+        $v1 = "Toto";
+        $v2 = "Tata";
+        if ($v1 == 'Toto') {
+          echo "Toto";
+        } else {
+          echo "Tata";
+        }
         return $this->render('default/index.html.twig');
-    }
-
-    /**
-     * @Route("/test", name="testpage")
-     */
-    public function testAction(Request $request)
-    {
-        return $this->render('default/test.html.twig');
     }
 }

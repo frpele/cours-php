@@ -1,0 +1,25 @@
+<!-- <h1>Liste de fruits (version dynamique - TWIG)</h1> -->
+<h1>{{ title }}</h1>
+<ul>
+  {% for fruit in fruits %}
+  <li>{{ fruit }}</li>
+  {% endfor %}
+</ul>
+
+<h2>Petit message en provenance du controleur</h2>
+<p><strong>{{ message }}</strong></p>
+
+<select>
+  {% for fruit in fruits2 %}
+  <option>{{ fruit.name }}</option>
+  {% endfor %}
+</select>
+
+<table>
+  {% for fruit in fruits2 %}
+  <tr>
+    <td>{{ fruit.name }}</td>
+    <td>{{ fruit.origin }}</td>
+  </tr>
+  {% endfor %}
+</table>
