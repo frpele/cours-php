@@ -18,7 +18,13 @@ git clone
 
 ls
 
-outil composer
+outil composer :
 sudo apt install composer
 composer install
- 
+
+doctrine:
+
+php bin/console doctrine:database:create
+php bin/console doctrine:generate:entity
+
+The Entity shortcut name: AppBundle:Fruit
