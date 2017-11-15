@@ -8,10 +8,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+* @Route("fruits")
+*/
+
 class FruitController extends Controller {
 
   /**
-  * @Route("/admin/fruits", name="fruit_admin_page")
+  * @Route("/", name="fruit_admin_page")
   */
 
   public function indexAction() {

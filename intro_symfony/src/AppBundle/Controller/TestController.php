@@ -9,6 +9,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Classes\Fruit;
 
+/**
+* @Route("test")
+*/
+
 class TestController extends Controller {
 
   private $message ="Petit message";
