@@ -10,4 +10,7 @@ namespace AppBundle\Repository;
  */
 class FruitRepository extends \Doctrine\ORM\EntityRepository
 {
+
+  // Nous ajouterons ici nos méthodes personnalisées
+  // de récupération de données
 }

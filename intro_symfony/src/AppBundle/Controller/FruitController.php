@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Fruit;
 
 
@@ -17,45 +18,56 @@ class FruitController extends Controller {
   /**
   * @Route("/", name="fruit_admin_page")
   */
+  public function indexAction(Request $r) {
+    // var_dump($request);
+    $post = $r->request;
+    // echo $post->get('name');
+    // echo $r->request->get('origin');
 
-public function indexAction(Request $r) {
-  // var_dump($request);
-  $post = $r->request;
-  echo $post->get('name');
-  echo $r->request->get('origin');
+    if ($r->getMethod() == 'POST') {
+      $name = $post->get('name');
+      $origin = $post->get('origin');
+      $comestible = $post->get('comestible');
 
-  if ($r->getMethod() == 'POST') {
-    $name = $post->get('name');
-    $origin = $post->get('origin');
-    $comestible = $post->get('comestible');
+      // Vérification du contenu de la variable $comestible
+      $comestible = ($comestible) ? 1 : 0;
 
-    // Vérification du contenu de la variable $comestible
-    if($comestible) {
-      $comestible = 1;
-    } else {
-      $comestible = 0;
+      $fruit = new Fruit();
+      // hydratation
+      $fruit->setName($name);
+      $fruit->setOrigin($origin);
+      $fruit->setComestible($comestible);
+
+      // Utilisation du EntityManager
+
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($fruit); // prépare la requete en insertion
+      // mais n'éxecute aucune requete sql
+      $em->flush();
+
     }
 
-    $fruit = new Fruit();
-    // hydratation
-    $fruit->setName($name);
-    $fruit->setOrigin($origin);
-    $fruit->setComestible($comestible);
+    // Récupération des fruits
+    // Fruit::class retourne chemin + nomde la classe
+    // getRepository pour les opérations de lecture
 
-    // Utilisation du EntityManager
+    $fruits = $this
+      ->getDoctrine()
+      ->getRepository(Fruit::class)
+      ->findAll();
 
-    $em = $this->getDoctrine()->getManager();
-    $em->persist($fruit); // prépare la requete en insertion
-    // mais n'éxecute aucune requete sql
-    $em->flush();
+    return $this->render('fruit/index.html.twig', array(
+      'fruits' => $fruits
 
+      ));
   }
 
-  // suite : créer un objet fruit, le transmettre à un manager
-  // pour l'enresgistrment en db
-
-  // var_dump($post);
-  return $this->render('fruit/index.html.twig', array(
-    ));
+  /**
+  * @Route("/delete/{id}", name="fruit_delete")
+  */
+  public function deleteAction($id) {
+    // l'argument id correspond au parametre id defini
+    // au niveau de l'annotation Route
+    return new Response("ID du fruit à supprimer: " . $id);
   }
 }
