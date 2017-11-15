@@ -13,3 +13,12 @@ route / action /vue
 /bin/
 /tests/
 /var
+
+git clone
+
+ls
+
+outil composer
+sudo apt install composer
+composer install
+ 
