@@ -1,0 +1,13 @@
+857448,127.0.0.1,GET,http://localhost:8000/,1510785166,,200
+1350fe,127.0.0.1,GET,http://localhost:8000/test/fruits,1510785170,,200
+f7e0fb,127.0.0.1,GET,http://localhost:8000/fruits,1510785176,,301
+698802,127.0.0.1,GET,http://localhost:8000/fruits/,1510785176,,200
+1f9919,127.0.0.1,POST,http://localhost:8000/fruits/,1510785194,,200
+05b604,127.0.0.1,POST,http://localhost:8000/fruits/,1510785207,,200
+ee6dbd,127.0.0.1,POST,http://localhost:8000/fruits/,1510785220,,200
+b66420,127.0.0.1,POST,http://localhost:8000/fruits/,1510785242,,200
+501eff,127.0.0.1,GET,http://localhost:8000/fruits/delete/4,1510785250,,200
+5955f0,127.0.0.1,GET,http://localhost:8000/,1510785297,,200
+c9c480,127.0.0.1,GET,http://localhost:8000/test/fruits,1510785298,,200
+1365c3,127.0.0.1,GET,http://localhost:8000/test/example,1510785300,,200
+6e6ffb,127.0.0.1,GET,http://localhost:8000/test/fruits-comestibles,1510785302,,200
