@@ -16,9 +16,9 @@ class DefaultController extends Controller
         $v1 = "Toto";
         $v2 = "Tata";
         if ($v1 == 'Toto') {
-          echo "Toto";
+          // echo "Toto";
         } else {
-          echo "Tata";
+          // echo "Tata";
         }
         return $this->render('default/index.html.twig');
     }

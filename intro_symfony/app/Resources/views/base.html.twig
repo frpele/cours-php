@@ -1,13 +1,27 @@
+{#commentaire
+
+{{ }} permet de lire une variable
+{% %} permet de définir un bloc d'instructions (exemple: for in, if)
+
+ #}
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8" />
         <title>Intro Symfony par Christophe</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        {% block css %} {% endblock %}
+        {% block css %}{% endblock %}
     </head>
+    <nav>
+      <ul class="nav nav-tabs">
+        <li><a href="{{ path('homepage') }}">Accueil</a></li>
+        <li><a href="{{ path('fruits_page') }}">Fruits</a></li>
+        <li><a href="{{ path('example_page') }}">Exemple</a></li>
+        <li><a href="{{ path('fruits_comestibles_page') }}">Fruits comestibles</a></li>
+      </ul>
+    </nav>
     <body>
       <div class="container">
         {% block body %}{% endblock %}

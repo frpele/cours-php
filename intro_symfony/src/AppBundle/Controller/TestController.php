@@ -56,7 +56,7 @@ class TestController extends Controller {
   }
 
   /**
-  * @Route("/example")
+  * @Route("/example", name="example_page")
   */
   public function exampleAction() {
     $res1 = new Response("Toto");
@@ -90,7 +90,7 @@ class TestController extends Controller {
   }
 
   /**
-  * @Route("/fruits")
+  * @Route("/fruits", name="fruits_page")
   */
   public function fruitsAction() {
     // renvoie fichier dynamique twig
@@ -106,5 +106,18 @@ class TestController extends Controller {
       'fruits3'  => $this->fruits3,
     ));
   }
+
+  /**
+  * @Route("/fruits-comestibles", name="fruits_comestibles_page")
+  */
+  public function fruitsComestiblesAction() {
+
+    return $this->render('test/fruits-comestibles.html.twig', array(
+      'title'   =>'Liste de fruits comestibles',
+      'fruits3'  => $this->fruits3,
+    ));
+
+  }
+
 
 }

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig'%}
+
+{% block css %}
+<style >
+  .not-comestible {
+    color: orange;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+<h1>{{ title }}</h1>
+
+<table class="table table-bordered table-striped">
+  {% for f in fruits3 %}
+  {% if f.comestible %}
+  <tr>
+    <td> {{f.name }}</td>
+    <td> {{f.getOrigin() }}</td>
+    <td>
+       <span >Aucun risque connu</span>
+    </td>
+    <td>
+      {% if not f.wiki %} <span>Aucun lien Wiki </span>
+      {% else %}<a href="{{f.getWiki() }}" target="_blank">{{f.getWiki() }}</a>{% endif%}
+    </td>
+  </tr>
+  {% endif%}
+  {% endfor %}
+</table>
+
+
+{% endblock %}
