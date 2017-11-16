@@ -8,10 +8,10 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    /**
-     * @Route("/", name="homepage")
-     */
-    public function homeAction(Request $request)
+  /**
+   * @Route("/", name="homepage")
+   */
+  public function homeAction(Request $request)
     {
         $v1 = "Toto";
         $v2 = "Tata";

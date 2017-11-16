@@ -39,26 +39,26 @@ class FruitController extends Controller {
       $fruit->setComestible($comestible);
 
       // Utilisation du EntityManager
+      $em = $this
+      ->getDoctrine()
+      ->getManager(); // pour toutes les opérations d'écriture (insertion, modification, suppression)
 
-      $em = $this->getDoctrine()->getManager();
       $em->persist($fruit); // prépare la requete en insertion
       // mais n'éxecute aucune requete sql
-      $em->flush();
+      $em->flush(); // execute toutes les requetes sql
 
     }
 
     // Récupération des fruits
     // Fruit::class retourne chemin + nomde la classe
     // getRepository pour les opérations de lecture
-
     $fruits = $this
       ->getDoctrine()
-      ->getRepository(Fruit::class)
+      ->getRepository(Fruit::class) // pour récupérer les données
       ->findAll();
 
     return $this->render('fruit/index.html.twig', array(
       'fruits' => $fruits
-
       ));
   }
 
@@ -68,6 +68,55 @@ class FruitController extends Controller {
   public function deleteAction($id) {
     // l'argument id correspond au parametre id defini
     // au niveau de l'annotation Route
-    return new Response("ID du fruit à supprimer: " . $id);
+    $fruit = $this
+      ->getDoctrine()
+      ->getRepository(Fruit::class) // pour récupérer les données
+      ->find($id);
+
+    $em = $this->getDoctrine()->getManager();
+
+    $em->remove($fruit); // requete en attente
+    $em->flush(); // execute toutes les requetes sql en attente
+
+    return $this->redirectToRoute('fruit_admin_page');
+
+    // return new Response("ID du fruit à supprimer: " . $id);
   }
+
+  /**
+  * @Route("/update/{id}", name="fruit_update")
+  */
+  public function updateAction($id,Request $request) {
+    // Ici : l'objet fruit est crée sans le notifier au Manager :
+    // $fruit = $this->getDoctrine()->getRepository(Fruit::class)->find($id);
+
+    // Variante : appeler getRepository après le getManager établit une visibilité
+    // entre le repo et le manager. Ici le Manager est notifié de l'existence
+    // de l'objet Fruit. Si cet objet change (reçoit de nouvelles valeurs)
+    // Le manager le sait. Le manager 'surveille' cet objet.
+
+    $em = $this->getDoctrine()->getManager();
+    $fruit = $em->getRepository(Fruit::class)->find($id);
+
+    if ($request->getMethod() == 'POST') {
+
+      // $fruit_updated = new Fruit();
+      $fruit->setName($request->request->get('name'));
+      $fruit->setOrigin($request->request->get('origin'));
+
+      $comestible = ($request->request->get('comestible')) ? 1 : 0 ;
+      $fruit->setComestible($comestible);
+
+      // $em = $this->getDoctrine()->getManager();
+      $em->flush(); // Si l'objet a reçu de nouvelles valeurs, le manager execute
+      // la requete appropriée
+      return $this->redirectToRoute('fruit_admin_page');
+
+      }
+
+    return $this->render('fruit/update.html.twig', array(
+      'fruit' => $fruit
+      ));
+  }
+
 }

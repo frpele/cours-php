@@ -12,14 +12,38 @@
         <title>Intro Symfony par Christophe</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <style>
+        .submenu{
+          display: none;
+          position: relative;
+          /*top:20px;*/
+          /*left:-22px;*/
+          background-color: #CCC;
+          padding:8px;
+          list-style-type: none;
+          border-radius: 4px;
+          width: 150px;
+        }
+        li:hover > ul.submenu {
+          display: block;
+          position: absolute;
+        }
+
+        </style>
         {% block css %}{% endblock %}
     </head>
     <nav>
       <ul class="nav nav-tabs">
         <li><a href="{{ path('homepage') }}">Accueil</a></li>
-        <li><a href="{{ path('fruits_page') }}">Fruits</a></li>
-        <li><a href="{{ path('example_page') }}">Exemple</a></li>
-        <li><a href="{{ path('fruits_comestibles_page') }}">Fruits comestibles</a></li>
+        <li><a href="{{ path('fruit_admin_page') }}">Fruits</a></li>
+        <li><a href="#">Test</a>
+          <ul class="submenu">
+            <li><a href="{{ path('fruits_page') }}">Fruits</a></li>
+            <li><a href="{{ path('example_page') }}">Exemple</a></li>
+            <li><a href="{{ path('fruits_comestibles_page') }}">Fruits comestibles</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
     <body>
