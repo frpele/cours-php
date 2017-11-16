@@ -16,12 +16,17 @@ use Symfony\Component\HttpFoundation\Request;
 class ProducerController extends Controller
 {
     /**
-     * @Route("/index")
+     * @Route("/index", name="producer_index")
      */
     public function indexAction()
     {
+      $producers = $this
+        ->getDoctrine()
+        ->getRepository(Producer::class) // pour récupérer les données
+        ->findAll();
+
         return $this->render('AppBundle:Producer:index.html.twig', array(
-            // ...
+          'producers' => $producers
         ));
     }
 
@@ -45,7 +50,15 @@ class ProducerController extends Controller
         $form->handleRequest($request);
 
         if($form->isSubmitted()) {
-          echo 'POST';
+          // hydratation automatique grâce à getData()
+          $producer = $form->getData();
+
+          // enregistrement en bdd
+          $em =$this->getDoctrine()->getManager();
+          $em->persist($producer);
+          $em->flush();
+          return $this->redirectToRoute('producer_index');
+
         }
 
         return $this->render('AppBundle:Producer:add.html.twig', array(

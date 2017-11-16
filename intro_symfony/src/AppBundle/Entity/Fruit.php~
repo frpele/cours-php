@@ -131,28 +131,4 @@ class Fruit
     {
         return $this->comestible;
     }
-
-    /**
-     * Set producer
-     *
-     * @param \AppBundle\Entity\Producer $producer
-     *
-     * @return Fruit
-     */
-    public function setProducer(\AppBundle\Entity\Producer $producer = null)
-    {
-        $this->producer = $producer;
-
-        return $this;
-    }
-
-    /**
-     * Get producer
-     *
-     * @return \AppBundle\Entity\Producer
-     */
-    public function getProducer()
-    {
-        return $this->producer;
-    }
 }
