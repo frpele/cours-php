@@ -1,7 +1,26 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}AppBundle:Producer:index{% endblock %}
-
 {% block body %}
-<h1>Welcome to the Producer:index page</h1>
+
+<h2>Liste des producteurs</h2>
+
+<table class="table table-bordered table-striped">
+
+  <tr>
+    <th>Nom</th>
+  </tr>
+
+  {% for p in producers %}
+  <tr>
+    <td>{{ p.name }}</td>
+        <td>
+      <a class="btn btn-primary btn-xs" href="{{ path('/edit', {'id': f.id}) }}">Modifier</a>
+      <a class="btn btn-danger btn-xs" href="{{ path('/delete', {'id': f.id}) }}">Supprimer</a>
+    </td>
+  </tr>
+  {% endfor %}
+
+</table>
+
+
 {% endblock %}
