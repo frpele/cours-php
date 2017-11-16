@@ -445,6 +445,9 @@
     <service id="AppBundle\Controller\FruitController" class="AppBundle\Controller\FruitController" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
+    <service id="AppBundle\Controller\ProducerController" class="AppBundle\Controller\ProducerController" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+    </service>
     <service id="AppBundle\Controller\TestController" class="AppBundle\Controller\TestController" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
     </service>
@@ -464,7 +467,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-50"/>
-      <argument type="service" id="service_locator.d0d72f4a5d7baead9b7a1eb1e3fa2533"/>
+      <argument type="service" id="service_locator.c9cde6d45ba1d91cefc6eb3155499dc8"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false">
       <tag name="controller.argument_value_resolver" priority="-100"/>
@@ -627,7 +630,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>yMBjaPHi6RPm4nQ8UbzgX9</argument>
+      <argument>pmVRnNU16nrpfT8vBH9NeW</argument>
       <argument>/var/www/html/cours-php/intro_symfony/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -637,7 +640,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>yMBjaPHi6RPm4nQ8UbzgX9</argument>
+      <argument>pmVRnNU16nrpfT8vBH9NeW</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -2190,12 +2193,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5a0cbf84200386.07025630</argument>
+      <argument>5a0dff32c23c70.79315280</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5a0cbf84200386.07025630</argument>
+      <argument>5a0dff32c23c70.79315280</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -2377,6 +2380,10 @@
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
+        <argument>/var/www/html/cours-php/intro_symfony/src/AppBundle/Resources/views</argument>
+        <argument>App</argument>
+      </call>
+      <call method="addPath">
         <argument>/var/www/html/cours-php/intro_symfony/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
@@ -2517,6 +2524,10 @@
       <call method="addPath">
         <argument>/var/www/html/cours-php/intro_symfony/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/cours-php/intro_symfony/src/AppBundle/Resources/views</argument>
+        <argument>App</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/cours-php/intro_symfony/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>
@@ -3251,6 +3262,8 @@
     <service id="abstract.instanceof.AppBundle\Controller\DefaultController" class="AppBundle\Controller\DefaultController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.AppBundle\Controller\FruitController" class="AppBundle\Controller\FruitController" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.AppBundle\Controller\FruitController" class="AppBundle\Controller\FruitController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.AppBundle\Controller\ProducerController" class="AppBundle\Controller\ProducerController" autowire="true" abstract="true"/>
+    <service id="abstract.instanceof.AppBundle\Controller\ProducerController" class="AppBundle\Controller\ProducerController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="instanceof.Symfony\Bundle\FrameworkBundle\Controller\Controller.0.AppBundle\Controller\TestController" class="AppBundle\Controller\TestController" autowire="true" abstract="true"/>
     <service id="abstract.instanceof.AppBundle\Controller\TestController" class="AppBundle\Controller\TestController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="service_locator.4f8384c8862c511eefe34301cff90111" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -3261,7 +3274,15 @@
       <tag name="container.service_locator"/>
       <argument type="collection"/>
     </service>
-    <service id="service_locator.d0d72f4a5d7baead9b7a1eb1e3fa2533" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id="service_locator.c44821edec70a928828b616b442758f8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection"/>
+    </service>
+    <service id="service_locator.0300b9d79a25bd21d0e1105e70c50134" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection"/>
+    </service>
+    <service id="service_locator.c9cde6d45ba1d91cefc6eb3155499dc8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection"/>
     </service>
@@ -3462,7 +3483,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>COqg8zDGg-</argument>
       <argument>0</argument>
-      <argument>yMBjaPHi6RPm4nQ8UbzgX9</argument>
+      <argument>pmVRnNU16nrpfT8vBH9NeW</argument>
       <argument>/var/www/html/cours-php/intro_symfony/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3470,7 +3491,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>4QnR04H5Jx</argument>
       <argument>0</argument>
-      <argument>yMBjaPHi6RPm4nQ8UbzgX9</argument>
+      <argument>pmVRnNU16nrpfT8vBH9NeW</argument>
       <argument>/var/www/html/cours-php/intro_symfony/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3478,7 +3499,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>jnB2rwBjA0</argument>
       <argument>0</argument>
-      <argument>yMBjaPHi6RPm4nQ8UbzgX9</argument>
+      <argument>pmVRnNU16nrpfT8vBH9NeW</argument>
       <argument>/var/www/html/cours-php/intro_symfony/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -3486,7 +3507,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>oaLbbP3zMw</argument>
       <argument>0</argument>
-      <argument>yMBjaPHi6RPm4nQ8UbzgX9</argument>
+      <argument>pmVRnNU16nrpfT8vBH9NeW</argument>
       <argument>/var/www/html/cours-php/intro_symfony/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

@@ -13,10 +13,7 @@
   {% for p in producers %}
   <tr>
     <td>{{ p.name }}</td>
-        <td>
-      <a class="btn btn-primary btn-xs" href="{{ path('/edit', {'id': f.id}) }}">Modifier</a>
-      <a class="btn btn-danger btn-xs" href="{{ path('/delete', {'id': f.id}) }}">Supprimer</a>
-    </td>
+  
   </tr>
   {% endfor %}
 

@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Fruit;
+use AppBundle\Entity\Producer;
 
 
 /**
@@ -57,9 +58,16 @@ class FruitController extends Controller {
       ->getRepository(Fruit::class) // pour récupérer les données
       ->findAll();
 
+    $producers = $this
+        ->getDoctrine()
+        ->getRepository(Producer::class) // pour récupérer les données
+        ->findAll();
+
     return $this->render('fruit/index.html.twig', array(
-      'fruits' => $fruits
-      ));
+      'fruits' => $fruits,
+      'producers' => $producers
+    ));
+
   }
 
   /**

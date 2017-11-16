@@ -127,6 +127,34 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'fruit_delete')), array (  '_controller' => 'AppBundle\\Controller\\FruitController::deleteAction',));
             }
 
+            // fruit_update
+            if (0 === strpos($pathinfo, '/fruits/update') && preg_match('#^/fruits/update/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'fruit_update')), array (  '_controller' => 'AppBundle\\Controller\\FruitController::updateAction',));
+            }
+
+        }
+
+        elseif (0 === strpos($pathinfo, '/producer')) {
+            // producer_index
+            if ('/producer/index' === $pathinfo) {
+                return array (  '_controller' => 'AppBundle\\Controller\\ProducerController::indexAction',  '_route' => 'producer_index',);
+            }
+
+            // app_producer_add
+            if ('/producer/add' === $pathinfo) {
+                return array (  '_controller' => 'AppBundle\\Controller\\ProducerController::addAction',  '_route' => 'app_producer_add',);
+            }
+
+            // app_producer_edit
+            if ('/producer/edit' === $pathinfo) {
+                return array (  '_controller' => 'AppBundle\\Controller\\ProducerController::editAction',  '_route' => 'app_producer_edit',);
+            }
+
+            // app_producer_delete
+            if ('/producer/delete' === $pathinfo) {
+                return array (  '_controller' => 'AppBundle\\Controller\\ProducerController::deleteAction',  '_route' => 'app_producer_delete',);
+            }
+
         }
 
         // example_page

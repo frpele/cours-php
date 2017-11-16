@@ -17,11 +17,11 @@ class __TwigTemplate_ef6a598e82a5011af52d5b328f0cd2f8830bea5f4c88506ad9e23671aec
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_17534dc0ae5f2406017f1b8c1e6d2a47cc853b199d5f97c5b3d75311eccd90bc = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_17534dc0ae5f2406017f1b8c1e6d2a47cc853b199d5f97c5b3d75311eccd90bc->enter($__internal_17534dc0ae5f2406017f1b8c1e6d2a47cc853b199d5f97c5b3d75311eccd90bc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "base.html.twig"));
+        $__internal_b37ce8b0d2ab46729e582350fb5fcb00d816017c5985e96e479a1a7ae20aee38 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_b37ce8b0d2ab46729e582350fb5fcb00d816017c5985e96e479a1a7ae20aee38->enter($__internal_b37ce8b0d2ab46729e582350fb5fcb00d816017c5985e96e479a1a7ae20aee38_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "base.html.twig"));
 
-        $__internal_447a430da83679e63f8c152b88ec5bfd9c674366b8ecb07439250a3332dedcf8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_447a430da83679e63f8c152b88ec5bfd9c674366b8ecb07439250a3332dedcf8->enter($__internal_447a430da83679e63f8c152b88ec5bfd9c674366b8ecb07439250a3332dedcf8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "base.html.twig"));
+        $__internal_b9a190219bf3af1d34a7ab4c1dcbd308ec5144622f7eca945f4686ed42866fac = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_b9a190219bf3af1d34a7ab4c1dcbd308ec5144622f7eca945f4686ed42866fac->enter($__internal_b9a190219bf3af1d34a7ab4c1dcbd308ec5144622f7eca945f4686ed42866fac_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "base.html.twig"));
 
         // line 7
         echo "
@@ -35,80 +35,107 @@ class __TwigTemplate_ef6a598e82a5011af52d5b328f0cd2f8830bea5f4c88506ad9e23671aec
         // line 14
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
+
+        <style>
+        .submenu{
+          display: none;
+          position: relative;
+          /*top:20px;*/
+          /*left:-22px;*/
+          background-color: #CCC;
+          padding:8px;
+          list-style-type: none;
+          border-radius: 4px;
+          width: 150px;
+        }
+        li:hover > ul.submenu {
+          display: block;
+          position: absolute;
+        }
+
+        </style>
         ";
-        // line 15
+        // line 34
         $this->displayBlock('css', $context, $blocks);
-        // line 16
+        // line 35
         echo "    </head>
     <nav>
       <ul class=\"nav nav-tabs\">
         <li><a href=\"";
-        // line 19
+        // line 38
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("homepage");
         echo "\">Accueil</a></li>
         <li><a href=\"";
-        // line 20
+        // line 39
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fruit_admin_page");
+        echo "\">Fruits</a></li>
+        <li><a href=\"#\">Test</a>
+          <ul class=\"submenu\">
+            <li><a href=\"";
+        // line 42
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fruits_page");
         echo "\">Fruits</a></li>
-        <li><a href=\"";
-        // line 21
+            <li><a href=\"";
+        // line 43
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("example_page");
         echo "\">Exemple</a></li>
-        <li><a href=\"";
-        // line 22
+            <li><a href=\"";
+        // line 44
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fruits_comestibles_page");
         echo "\">Fruits comestibles</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
     <body>
       <div class=\"container\">
         ";
-        // line 27
+        // line 51
         $this->displayBlock('body', $context, $blocks);
-        // line 28
+        // line 52
         echo "            </div>
     </body>
 </html>
 ";
         
-        $__internal_17534dc0ae5f2406017f1b8c1e6d2a47cc853b199d5f97c5b3d75311eccd90bc->leave($__internal_17534dc0ae5f2406017f1b8c1e6d2a47cc853b199d5f97c5b3d75311eccd90bc_prof);
+        $__internal_b37ce8b0d2ab46729e582350fb5fcb00d816017c5985e96e479a1a7ae20aee38->leave($__internal_b37ce8b0d2ab46729e582350fb5fcb00d816017c5985e96e479a1a7ae20aee38_prof);
 
         
-        $__internal_447a430da83679e63f8c152b88ec5bfd9c674366b8ecb07439250a3332dedcf8->leave($__internal_447a430da83679e63f8c152b88ec5bfd9c674366b8ecb07439250a3332dedcf8_prof);
+        $__internal_b9a190219bf3af1d34a7ab4c1dcbd308ec5144622f7eca945f4686ed42866fac->leave($__internal_b9a190219bf3af1d34a7ab4c1dcbd308ec5144622f7eca945f4686ed42866fac_prof);
 
     }
 
-    // line 15
+    // line 34
     public function block_css($context, array $blocks = array())
     {
-        $__internal_8b9e2226e1380b9c16977b27cb7549f4f95508580744c3270f4e7471741b0555 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_8b9e2226e1380b9c16977b27cb7549f4f95508580744c3270f4e7471741b0555->enter($__internal_8b9e2226e1380b9c16977b27cb7549f4f95508580744c3270f4e7471741b0555_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "css"));
+        $__internal_929abdb6cf468f72e49da1fc05a4ad13be58e1438028c6bb366a8ed1b877dc2e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_929abdb6cf468f72e49da1fc05a4ad13be58e1438028c6bb366a8ed1b877dc2e->enter($__internal_929abdb6cf468f72e49da1fc05a4ad13be58e1438028c6bb366a8ed1b877dc2e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "css"));
 
-        $__internal_474b93a968426c4cf8509eaec8b5758e3c3fdc988c6a0d4a91df055aa38b3856 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_474b93a968426c4cf8509eaec8b5758e3c3fdc988c6a0d4a91df055aa38b3856->enter($__internal_474b93a968426c4cf8509eaec8b5758e3c3fdc988c6a0d4a91df055aa38b3856_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "css"));
-
-        
-        $__internal_474b93a968426c4cf8509eaec8b5758e3c3fdc988c6a0d4a91df055aa38b3856->leave($__internal_474b93a968426c4cf8509eaec8b5758e3c3fdc988c6a0d4a91df055aa38b3856_prof);
+        $__internal_55348389d715a32ad52928545b57d68c74152b245bd8f5ec8024cdbb5a8e0299 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_55348389d715a32ad52928545b57d68c74152b245bd8f5ec8024cdbb5a8e0299->enter($__internal_55348389d715a32ad52928545b57d68c74152b245bd8f5ec8024cdbb5a8e0299_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "css"));
 
         
-        $__internal_8b9e2226e1380b9c16977b27cb7549f4f95508580744c3270f4e7471741b0555->leave($__internal_8b9e2226e1380b9c16977b27cb7549f4f95508580744c3270f4e7471741b0555_prof);
+        $__internal_55348389d715a32ad52928545b57d68c74152b245bd8f5ec8024cdbb5a8e0299->leave($__internal_55348389d715a32ad52928545b57d68c74152b245bd8f5ec8024cdbb5a8e0299_prof);
+
+        
+        $__internal_929abdb6cf468f72e49da1fc05a4ad13be58e1438028c6bb366a8ed1b877dc2e->leave($__internal_929abdb6cf468f72e49da1fc05a4ad13be58e1438028c6bb366a8ed1b877dc2e_prof);
 
     }
 
-    // line 27
+    // line 51
     public function block_body($context, array $blocks = array())
     {
-        $__internal_b3e5d4a036fa66240a83e65f7cb47f0577bf940139e347bfa5c6ce2157fe242d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_b3e5d4a036fa66240a83e65f7cb47f0577bf940139e347bfa5c6ce2157fe242d->enter($__internal_b3e5d4a036fa66240a83e65f7cb47f0577bf940139e347bfa5c6ce2157fe242d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_12dca86781841eca643ae9aec16359789f6e0f6a3e3dfb09741b14c89d697b0b = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_12dca86781841eca643ae9aec16359789f6e0f6a3e3dfb09741b14c89d697b0b->enter($__internal_12dca86781841eca643ae9aec16359789f6e0f6a3e3dfb09741b14c89d697b0b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_aef2d448a35afdac302cc59bc2a09c060fea08ce650a0bb0c22d0e7f82053af7 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_aef2d448a35afdac302cc59bc2a09c060fea08ce650a0bb0c22d0e7f82053af7->enter($__internal_aef2d448a35afdac302cc59bc2a09c060fea08ce650a0bb0c22d0e7f82053af7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
-
-        
-        $__internal_aef2d448a35afdac302cc59bc2a09c060fea08ce650a0bb0c22d0e7f82053af7->leave($__internal_aef2d448a35afdac302cc59bc2a09c060fea08ce650a0bb0c22d0e7f82053af7_prof);
+        $__internal_2ded804b580c27ff8b201dde4cefaf30fabeac0d80004e0ee23d2ddf79812634 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_2ded804b580c27ff8b201dde4cefaf30fabeac0d80004e0ee23d2ddf79812634->enter($__internal_2ded804b580c27ff8b201dde4cefaf30fabeac0d80004e0ee23d2ddf79812634_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         
-        $__internal_b3e5d4a036fa66240a83e65f7cb47f0577bf940139e347bfa5c6ce2157fe242d->leave($__internal_b3e5d4a036fa66240a83e65f7cb47f0577bf940139e347bfa5c6ce2157fe242d_prof);
+        $__internal_2ded804b580c27ff8b201dde4cefaf30fabeac0d80004e0ee23d2ddf79812634->leave($__internal_2ded804b580c27ff8b201dde4cefaf30fabeac0d80004e0ee23d2ddf79812634_prof);
+
+        
+        $__internal_12dca86781841eca643ae9aec16359789f6e0f6a3e3dfb09741b14c89d697b0b->leave($__internal_12dca86781841eca643ae9aec16359789f6e0f6a3e3dfb09741b14c89d697b0b_prof);
 
     }
 
@@ -124,7 +151,7 @@ class __TwigTemplate_ef6a598e82a5011af52d5b328f0cd2f8830bea5f4c88506ad9e23671aec
 
     public function getDebugInfo()
     {
-        return array (  99 => 27,  82 => 15,  69 => 28,  67 => 27,  59 => 22,  55 => 21,  51 => 20,  47 => 19,  42 => 16,  40 => 15,  36 => 14,  27 => 7,);
+        return array (  126 => 51,  109 => 34,  96 => 52,  94 => 51,  84 => 44,  80 => 43,  76 => 42,  70 => 39,  66 => 38,  61 => 35,  59 => 34,  36 => 14,  27 => 7,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -151,14 +178,38 @@ class __TwigTemplate_ef6a598e82a5011af52d5b328f0cd2f8830bea5f4c88506ad9e23671aec
         <title>Intro Symfony par Christophe</title>
         <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">
         <link rel=\"icon\" type=\"image/x-icon\" href=\"{{ asset('favicon.ico') }}\" />
+
+        <style>
+        .submenu{
+          display: none;
+          position: relative;
+          /*top:20px;*/
+          /*left:-22px;*/
+          background-color: #CCC;
+          padding:8px;
+          list-style-type: none;
+          border-radius: 4px;
+          width: 150px;
+        }
+        li:hover > ul.submenu {
+          display: block;
+          position: absolute;
+        }
+
+        </style>
         {% block css %}{% endblock %}
     </head>
     <nav>
       <ul class=\"nav nav-tabs\">
         <li><a href=\"{{ path('homepage') }}\">Accueil</a></li>
-        <li><a href=\"{{ path('fruits_page') }}\">Fruits</a></li>
-        <li><a href=\"{{ path('example_page') }}\">Exemple</a></li>
-        <li><a href=\"{{ path('fruits_comestibles_page') }}\">Fruits comestibles</a></li>
+        <li><a href=\"{{ path('fruit_admin_page') }}\">Fruits</a></li>
+        <li><a href=\"#\">Test</a>
+          <ul class=\"submenu\">
+            <li><a href=\"{{ path('fruits_page') }}\">Fruits</a></li>
+            <li><a href=\"{{ path('example_page') }}\">Exemple</a></li>
+            <li><a href=\"{{ path('fruits_comestibles_page') }}\">Fruits comestibles</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
     <body>

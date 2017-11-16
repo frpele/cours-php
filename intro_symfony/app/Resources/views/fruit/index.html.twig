@@ -17,10 +17,17 @@
     <input type="checkbox" name="comestible">
   </div>
   <input type="submit" name="submit" value="Enregistrer">
-
+  <select class="" name="category">
+    <option value="0">Choisir un producteur</option>
+    {% for p in producers %}
+      <option value=" {{ p.id }}">{{ p.name }}</option>
+      {% endfor %}
+  </select>
 </form>
 
 <hr>
+
+
 
 <table class="table table-bordered table-striped">
 
