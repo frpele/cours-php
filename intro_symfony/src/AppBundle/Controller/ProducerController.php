@@ -34,7 +34,7 @@ class ProducerController extends Controller
      * @Route("/add")
      */
     public function addAction(Request $request)
-    {
+      {
         // Création d'un objet vide
         $producer = new Producer();
         // La méthode createFormBuilder permet de créer un form en pure POO

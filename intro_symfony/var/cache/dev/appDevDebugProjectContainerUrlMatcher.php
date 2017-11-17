@@ -157,6 +157,16 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // app_retailor_index
+        if ('/retailor/index' === $pathinfo) {
+            return array (  '_controller' => 'AppBundle\\Controller\\RetailorController::indexAction',  '_route' => 'app_retailor_index',);
+        }
+
+        // app_retailor_add
+        if ('/retailor/add' === $pathinfo) {
+            return array (  '_controller' => 'AppBundle\\Controller\\RetailorController::addAction',  '_route' => 'app_retailor_add',);
+        }
+
         // example_page
         if ('/test/example' === $pathinfo) {
             return array (  '_controller' => 'AppBundle\\Controller\\TestController::exampleAction',  '_route' => 'example_page',);

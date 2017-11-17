@@ -29,6 +29,11 @@ class FruitController extends Controller {
       $name = $post->get('name');
       $origin = $post->get('origin');
       $comestible = $post->get('comestible');
+      $producer_id = $post->get('producer_id');
+
+      // récupérer l'objet producer complet à partir d'un id
+      $producer = $this->getDoctrine()
+      ->getRepository(Producer::class)->find($producer_id);
 
       // Vérification du contenu de la variable $comestible
       $comestible = ($comestible) ? 1 : 0;
@@ -38,6 +43,8 @@ class FruitController extends Controller {
       $fruit->setName($name);
       $fruit->setOrigin($origin);
       $fruit->setComestible($comestible);
+      $fruit->setProducer($producer);
+
 
       // Utilisation du EntityManager
       $em = $this
