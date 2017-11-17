@@ -45,10 +45,18 @@ class Fruit
 
     /**
      *
-     *@ORM\OneToOne(targetEntity="AppBundle\Entity\Producer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Producer")
      *
      */
     private $producer;
+
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Retailor", mappedBy="fruit")
+     *
+     */
+    private $retailors;
+
 
     /**
      * Get id
@@ -154,5 +162,46 @@ class Fruit
     public function getProducer()
     {
         return $this->producer;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->retailors = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add retailor
+     *
+     * @param \AppBundle\Entity\Retailor $retailor
+     *
+     * @return Fruit
+     */
+    public function addRetailor(\AppBundle\Entity\Retailor $retailor)
+    {
+        $this->retailors[] = $retailor;
+
+        return $this;
+    }
+
+    /**
+     * Remove retailor
+     *
+     * @param \AppBundle\Entity\Retailor $retailor
+     */
+    public function removeRetailor(\AppBundle\Entity\Retailor $retailor)
+    {
+        $this->retailors->removeElement($retailor);
+    }
+
+    /**
+     * Get retailors
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRetailors()
+    {
+        return $this->retailors;
     }
 }

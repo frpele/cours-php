@@ -69,28 +69,4 @@ class Retailor
     {
         return $this->name;
     }
-
-    /**
-     * Set fruit
-     *
-     * @param \AppBundle\Entity\Fruit $fruit
-     *
-     * @return Retailor
-     */
-    public function setFruit(\AppBundle\Entity\Fruit $fruit = null)
-    {
-        $this->fruit = $fruit;
-
-        return $this;
-    }
-
-    /**
-     * Get fruit
-     *
-     * @return \AppBundle\Entity\Fruit
-     */
-    public function getFruit()
-    {
-        return $this->fruit;
-    }
 }

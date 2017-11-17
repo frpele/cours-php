@@ -45,10 +45,18 @@ class Fruit
 
     /**
      *
-     *@ORM\OneToOne(targetEntity="AppBundle\Entity\Producer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Producer")
      *
      */
     private $producer;
+
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Retailor", mappedBy="fruit")
+     *
+     */
+    private $retailors;
+
 
     /**
      * Get id
@@ -130,5 +138,29 @@ class Fruit
     public function getComestible()
     {
         return $this->comestible;
+    }
+
+    /**
+     * Set producer
+     *
+     * @param \AppBundle\Entity\Producer $producer
+     *
+     * @return Fruit
+     */
+    public function setProducer(\AppBundle\Entity\Producer $producer = null)
+    {
+        $this->producer = $producer;
+
+        return $this;
+    }
+
+    /**
+     * Get producer
+     *
+     * @return \AppBundle\Entity\Producer
+     */
+    public function getProducer()
+    {
+        return $this->producer;
     }
 }

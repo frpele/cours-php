@@ -3,5 +3,20 @@
 {% block title %}AppBundle:Retailor:index{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Retailor:index page</h1>
+<h1>Liste des distributeurs</h1>
+
+<table class="table table-bordered table-striped">
+
+  <tr>
+    <th>Nom</th>
+  </tr>
+
+  {% for r in retailors %}
+  <tr>
+    <td>{{ r.name }}</td>
+
+  </tr>
+  {% endfor %}
+
+</table>
 {% endblock %}

@@ -157,9 +157,9 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // app_retailor_index
+        // retailor_index
         if ('/retailor/index' === $pathinfo) {
-            return array (  '_controller' => 'AppBundle\\Controller\\RetailorController::indexAction',  '_route' => 'app_retailor_index',);
+            return array (  '_controller' => 'AppBundle\\Controller\\RetailorController::indexAction',  '_route' => 'retailor_index',);
         }
 
         // app_retailor_add
