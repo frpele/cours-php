@@ -65,3 +65,5 @@ d82d3f,127.0.0.1,GET,http://localhost:8000/fruits/,1510868339,,200
 5c9199,127.0.0.1,GET,http://localhost:8000/fruits/,1510868390,,200
 edd99c,127.0.0.1,GET,http://localhost:8000/producer/add,1510908382,,200
 5ea8e9,127.0.0.1,GET,http://localhost:8000/,1510908391,,200
+c69ef9,127.0.0.1,GET,http://localhost:8000/,1510908472,,200
+62998e,127.0.0.1,GET,http://localhost:8000/fruits/,1510908479,,200
