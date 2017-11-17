@@ -21,29 +21,29 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_e0b450eccdae8864ac0a35c27e63e56195dec6043a04a27adc3a589354d5ad71 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_e0b450eccdae8864ac0a35c27e63e56195dec6043a04a27adc3a589354d5ad71->enter($__internal_e0b450eccdae8864ac0a35c27e63e56195dec6043a04a27adc3a589354d5ad71_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "fruit/index.html.twig"));
+        $__internal_d6eb54c3050df9f52cdc30ab7ea5436a9c82820999ea486e68a5cd9b27724c0a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_d6eb54c3050df9f52cdc30ab7ea5436a9c82820999ea486e68a5cd9b27724c0a->enter($__internal_d6eb54c3050df9f52cdc30ab7ea5436a9c82820999ea486e68a5cd9b27724c0a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "fruit/index.html.twig"));
 
-        $__internal_80dec083224fd4bf86bb991b122378b68ac5b90beaa380b5d9e422423b926066 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_80dec083224fd4bf86bb991b122378b68ac5b90beaa380b5d9e422423b926066->enter($__internal_80dec083224fd4bf86bb991b122378b68ac5b90beaa380b5d9e422423b926066_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "fruit/index.html.twig"));
+        $__internal_ecd03ccb1d7795dba8e958c9f11f2cf23a1a0bfd2155e9a193600e5030882b23 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_ecd03ccb1d7795dba8e958c9f11f2cf23a1a0bfd2155e9a193600e5030882b23->enter($__internal_ecd03ccb1d7795dba8e958c9f11f2cf23a1a0bfd2155e9a193600e5030882b23_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "fruit/index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_e0b450eccdae8864ac0a35c27e63e56195dec6043a04a27adc3a589354d5ad71->leave($__internal_e0b450eccdae8864ac0a35c27e63e56195dec6043a04a27adc3a589354d5ad71_prof);
+        $__internal_d6eb54c3050df9f52cdc30ab7ea5436a9c82820999ea486e68a5cd9b27724c0a->leave($__internal_d6eb54c3050df9f52cdc30ab7ea5436a9c82820999ea486e68a5cd9b27724c0a_prof);
 
         
-        $__internal_80dec083224fd4bf86bb991b122378b68ac5b90beaa380b5d9e422423b926066->leave($__internal_80dec083224fd4bf86bb991b122378b68ac5b90beaa380b5d9e422423b926066_prof);
+        $__internal_ecd03ccb1d7795dba8e958c9f11f2cf23a1a0bfd2155e9a193600e5030882b23->leave($__internal_ecd03ccb1d7795dba8e958c9f11f2cf23a1a0bfd2155e9a193600e5030882b23_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_443b81a5bc07729af660f87e72a48bc7937a9612025dde15be76b349534dde77 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_443b81a5bc07729af660f87e72a48bc7937a9612025dde15be76b349534dde77->enter($__internal_443b81a5bc07729af660f87e72a48bc7937a9612025dde15be76b349534dde77_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_204580431903fab58b63910ace331949425e84e4323eafcf93719420391df414 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_204580431903fab58b63910ace331949425e84e4323eafcf93719420391df414->enter($__internal_204580431903fab58b63910ace331949425e84e4323eafcf93719420391df414_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_3bd4d22e3bf46a085bcbb932829263c38538677c2264b3dff2595f3f51948511 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_3bd4d22e3bf46a085bcbb932829263c38538677c2264b3dff2595f3f51948511->enter($__internal_3bd4d22e3bf46a085bcbb932829263c38538677c2264b3dff2595f3f51948511_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_a81363760bfa466fe5d531b740a14898135336bcce817fdf30082b797999701c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_a81363760bfa466fe5d531b740a14898135336bcce817fdf30082b797999701c->enter($__internal_a81363760bfa466fe5d531b740a14898135336bcce817fdf30082b797999701c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "
@@ -96,66 +96,94 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
     <th>Nom</th>
     <th>Origine</th>
     <th>Producteur</th>
+    <th>Détaillant</th>
     <th>Comestible</th>
     <th>Actions</th>
   </tr>
 
   ";
-        // line 44
+        // line 45
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["fruits"] ?? $this->getContext($context, "fruits")));
         foreach ($context['_seq'] as $context["_key"] => $context["f"]) {
-            // line 45
+            // line 46
             echo "  <tr>
     <td>";
-            // line 46
+            // line 47
             echo twig_escape_filter($this->env, $this->getAttribute($context["f"], "name", array()), "html", null, true);
             echo "</td>
     <td>";
-            // line 47
+            // line 48
             echo twig_escape_filter($this->env, $this->getAttribute($context["f"], "origin", array()), "html", null, true);
             echo "</td>
     <td>
       <!-- Si la  propriété producer ne vaut pas NULL :
     On peut accéder à l'objet producer-->
       ";
-            // line 51
+            // line 52
             if ($this->getAttribute($context["f"], "producer", array())) {
-                // line 52
+                // line 53
                 echo "
       ";
-                // line 53
+                // line 54
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["f"], "producer", array()), "name", array()), "html", null, true);
                 echo "
       ";
             } else {
-                // line 55
+                // line 56
                 echo "      Aucun producteur
       ";
             }
-            // line 57
+            // line 58
+            echo "    </td>
+    <td>
+    ";
+            // line 60
+            if ((twig_length_filter($this->env, $this->getAttribute($context["f"], "retailors", array())) > 0)) {
+                // line 61
+                echo "      ";
+                $context['_parent'] = $context;
+                $context['_seq'] = twig_ensure_traversable($this->getAttribute($context["f"], "retailors", array()));
+                foreach ($context['_seq'] as $context["_key"] => $context["r"]) {
+                    // line 62
+                    echo "      ";
+                    echo twig_escape_filter($this->env, $this->getAttribute($context["r"], "name", array()), "html", null, true);
+                    echo ",
+      ";
+                }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['r'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 64
+                echo "    ";
+            } else {
+                // line 65
+                echo "    Aucun distributeur
+    ";
+            }
+            // line 67
             echo "    </td>
     <td>
       ";
-            // line 59
+            // line 69
             if (($this->getAttribute($context["f"], "comestible", array()) == 1)) {
-                // line 60
+                // line 70
                 echo "      oui
       ";
             } else {
-                // line 62
+                // line 72
                 echo "      non
       ";
             }
-            // line 64
+            // line 74
             echo "    </td>
     <td>
       <a class=\"btn btn-primary btn-xs\" href=\"";
-            // line 66
+            // line 76
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fruit_update", array("id" => $this->getAttribute($context["f"], "id", array()))), "html", null, true);
             echo "\">Modifier</a>
       <a class=\"btn btn-danger btn-xs\" href=\"";
-            // line 67
+            // line 77
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fruit_delete", array("id" => $this->getAttribute($context["f"], "id", array()))), "html", null, true);
             echo "\">Supprimer</a>
     </td>
@@ -165,16 +193,16 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['f'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 71
+        // line 81
         echo "
 </table>
 
 ";
         
-        $__internal_3bd4d22e3bf46a085bcbb932829263c38538677c2264b3dff2595f3f51948511->leave($__internal_3bd4d22e3bf46a085bcbb932829263c38538677c2264b3dff2595f3f51948511_prof);
+        $__internal_a81363760bfa466fe5d531b740a14898135336bcce817fdf30082b797999701c->leave($__internal_a81363760bfa466fe5d531b740a14898135336bcce817fdf30082b797999701c_prof);
 
         
-        $__internal_443b81a5bc07729af660f87e72a48bc7937a9612025dde15be76b349534dde77->leave($__internal_443b81a5bc07729af660f87e72a48bc7937a9612025dde15be76b349534dde77_prof);
+        $__internal_204580431903fab58b63910ace331949425e84e4323eafcf93719420391df414->leave($__internal_204580431903fab58b63910ace331949425e84e4323eafcf93719420391df414_prof);
 
     }
 
@@ -190,7 +218,7 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
 
     public function getDebugInfo()
     {
-        return array (  169 => 71,  159 => 67,  155 => 66,  151 => 64,  147 => 62,  143 => 60,  141 => 59,  137 => 57,  133 => 55,  128 => 53,  125 => 52,  123 => 51,  116 => 47,  112 => 46,  109 => 45,  105 => 44,  84 => 25,  73 => 23,  69 => 22,  49 => 4,  40 => 3,  11 => 1,);
+        return array (  197 => 81,  187 => 77,  183 => 76,  179 => 74,  175 => 72,  171 => 70,  169 => 69,  165 => 67,  161 => 65,  158 => 64,  149 => 62,  144 => 61,  142 => 60,  138 => 58,  134 => 56,  129 => 54,  126 => 53,  124 => 52,  117 => 48,  113 => 47,  110 => 46,  106 => 45,  84 => 25,  73 => 23,  69 => 22,  49 => 4,  40 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -242,6 +270,7 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
     <th>Nom</th>
     <th>Origine</th>
     <th>Producteur</th>
+    <th>Détaillant</th>
     <th>Comestible</th>
     <th>Actions</th>
   </tr>
@@ -259,6 +288,15 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
       {% else %}
       Aucun producteur
       {% endif %}
+    </td>
+    <td>
+    {% if f.retailors | length > 0 %}
+      {% for r in f.retailors %}
+      {{ r.name }},
+      {% endfor %}
+    {% else %}
+    Aucun distributeur
+    {% endif %}
     </td>
     <td>
       {% if f.comestible == 1 %}

@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use AppBundle\Entity\Retailor;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -41,8 +42,12 @@ class RetailorController extends Controller
 
       $form =$this->createFormBuilder($retailor)
       ->add('name', TextType::class)
+      ->add('fruit', EntityType::class, array(
+        'class' => 'AppBundle:Fruit',
+        'choice_label' => 'name'
+      ))
       ->add('submit', SubmitType::class, array(
-        'label' =>'Enregistrer',
+        'label' =>'Enregistrer'
       ))
       ->getForm();
 

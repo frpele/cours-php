@@ -37,6 +37,7 @@
     <th>Nom</th>
     <th>Origine</th>
     <th>Producteur</th>
+    <th>Détaillant</th>
     <th>Comestible</th>
     <th>Actions</th>
   </tr>
@@ -54,6 +55,15 @@
       {% else %}
       Aucun producteur
       {% endif %}
+    </td>
+    <td>
+    {% if f.retailors | length > 0 %}
+      {% for r in f.retailors %}
+      {{ r.name }},
+      {% endfor %}
+    {% else %}
+    Aucun distributeur
+    {% endif %}
     </td>
     <td>
       {% if f.comestible == 1 %}
