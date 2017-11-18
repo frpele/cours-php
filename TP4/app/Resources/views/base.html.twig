@@ -2,12 +2,40 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}TP4 - Biblios - par François{% endblock %}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <style>
+          .submenu{
+            display: none;
+            position: relative;
+            /*top:20px;*/
+            /*left:-22px;*/
+            background-color: #CCC;
+            padding:8px;
+            list-style-type: none;
+            border-radius: 4px;
+            width: 150px;
+          }
+          li:hover > ul.submenu {
+            display: block;
+            position: absolute;
+          }
+
+        </style>
+        {% block css %}{% endblock %}
     </head>
+    <nav>
+      <ul class="nav nav-tabs">
+        <li><a href="{{ path('homepage') }}">Accueil Biblios</a></li>
+        <li><a href="{{ path('author_admin_page') }}">Auteurs</a></li>
+
+      </ul>
+    </nav>
     <body>
+      <div class="container">
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+      </div>
     </body>
 </html>

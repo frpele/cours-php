@@ -133,3 +133,7 @@ f734fc,127.0.0.1,GET,http://localhost:8000/fruits/,1510920629,,200
 d26173,127.0.0.1,GET,http://localhost:8000/fruits/,1511037292,,500
 91fb1b,127.0.0.1,GET,http://localhost:8000/fruits/,1511037325,,200
 6b1943,127.0.0.1,POST,http://localhost:8000/fruits/,1511037390,,200
+be1730,127.0.0.1,GET,http://localhost:8000/,1511040669,,200
+3b1d3d,127.0.0.1,GET,http://localhost:8000/fruits/,1511040672,,200
+88bdc2,127.0.0.1,GET,http://localhost:8000/fruits/,1511040694,,200
+fdcab8,127.0.0.1,GET,http://localhost:8000/,1511040741,,200

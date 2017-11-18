@@ -3,5 +3,15 @@
 {% block title %}AppBundle:Author:add{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Author:add page</h1>
+<h1>Ajouter un nouvel auteur</h1>
+<hr>
+<p><strong><a href="{{ path('author_admin_page') }}">< Retour à la liste des auteurs</a></strong></p>
+<hr>
+<h2>Remplissez les champs ci-dessous : </h2>
+
+{{ form_start(form) }}
+
+
+{{ form_end(form) }}
+
 {% endblock %}
