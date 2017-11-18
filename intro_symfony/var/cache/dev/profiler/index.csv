@@ -129,3 +129,7 @@ b14f7b,127.0.0.1,GET,http://localhost:8000/fruits/,1510920429,59c8b4,200
 468065,127.0.0.1,GET,http://localhost:8000/fruits/,1510920621,7488d7,200
 7488d7,127.0.0.1,GET,http://localhost:8000/fruits/,1510920621,,500
 f734fc,127.0.0.1,GET,http://localhost:8000/fruits/,1510920629,,200
+4f1832,127.0.0.1,GET,http://localhost:8000/fruits/,1511037292,d26173,200
+d26173,127.0.0.1,GET,http://localhost:8000/fruits/,1511037292,,500
+91fb1b,127.0.0.1,GET,http://localhost:8000/fruits/,1511037325,,200
+6b1943,127.0.0.1,POST,http://localhost:8000/fruits/,1511037390,,200
