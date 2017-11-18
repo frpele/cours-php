@@ -24,6 +24,9 @@
     <td>{{ a.lastname }}</td>
     <td>{{ a.birthYear }}</td>
     <td>{{ a.country }}</td>
+    <td>
+      <a class="btn btn-danger btn-xs" href="{{ path('author_delete_page', {'id': a.id}) }}">Supprimer</a>
+    </td>
   </tr>
   {% endfor %}
 

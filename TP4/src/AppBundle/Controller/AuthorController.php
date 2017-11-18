@@ -82,13 +82,25 @@ class AuthorController extends Controller
     }
 
     /**
-     * @Route("/delete")
+     * @Route("/delete/{id}", name="author_delete_page")
      */
-    public function deleteAction()
+    public function deleteAction($id)
     {
-        return $this->render('AppBundle:Author:delete.html.twig', array(
-            // ...
-        ));
+
+      $author = $this
+        ->getDoctrine()
+        ->getRepository(Author::class) // pour récupérer les données
+        ->find($id);
+
+      $em = $this->getDoctrine()->getManager();
+
+      $em->remove($author); // requete en attente
+      $em->flush(); // execute toutes les requetes sql en attente
+
+      return $this->redirectToRoute('author_admin_page');
+
+
     }
+
 
 }
