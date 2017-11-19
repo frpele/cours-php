@@ -1,9 +1,9 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}TP4 - Biblios - Auteur{% endblock %}
+{% block title %}TP4 - Biblios - Auteurs{% endblock %}
 
 {% block body %}
-<h1>Bienvenue sur la page des auteurs</h1>
+<h1>Bienvenue sur la rubrique Auteurs</h1>
 <hr>
 <p><strong><a href="{{ path('author_add_page') }}">> Ajouter un auteur</a></strong></p>
 <hr>
@@ -25,6 +25,7 @@
     <td>{{ a.birthYear }}</td>
     <td>{{ a.country }}</td>
     <td>
+      <a class="btn btn-primary btn-xs" href="{{ path('author_edit_page', {'id': a.id}) }}">Modifier</a>
       <a class="btn btn-danger btn-xs" href="{{ path('author_delete_page', {'id': a.id}) }}">Supprimer</a>
     </td>
   </tr>

@@ -1,7 +1,11 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}AppBundle:Book:index{% endblock %}
+{% block title %}TP4 - Biblios - Livres{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Book:index page</h1>
+<h1>Bienvenue sur la rubrique Livres</h1>
+<hr>
+<p><strong><a href="{{ path('book_add_page') }}">> Ajouter un livre</a></strong></p>
+<hr>
+<h2>Liste des livres</h2>
 {% endblock %}

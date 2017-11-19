@@ -4,11 +4,21 @@ namespace AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use AppBundle\Entity\Book;
+use Symfony\Component\HttpFoundation\Request;
+
+
+/**
+ * @Route("/book")
+ */
 
 class BookController extends Controller
 {
     /**
-     * @Route("/index")
+     * @Route("/index", name="book_admin_page")
      */
     public function indexAction()
     {
@@ -18,7 +28,7 @@ class BookController extends Controller
     }
 
     /**
-     * @Route("/add")
+     * @Route("/add", name="book_add_page")
      */
     public function addAction()
     {

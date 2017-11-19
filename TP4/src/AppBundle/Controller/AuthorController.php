@@ -72,12 +72,39 @@ class AuthorController extends Controller
   }
 
     /**
-     * @Route("/edit")
+     * @Route("/edit/{id}", name="author_edit_page")
      */
-    public function editAction()
+    public function editAction($id,Request $request)
     {
+      $em = $this->getDoctrine()->getManager();
+      $author = $em->getRepository(Author::class)->find($id);
+
+      $form =$this->createFormBuilder($author)
+      ->add('firstname', TextType::class)
+      ->add('lastname', TextType::class)
+      ->add('birth_year', TextType::class)
+      ->add('country', TextType::class)
+      ->add('submit', SubmitType::class, array(
+        'label' =>'Enregistrer',
+      ))
+      ->getForm();
+
+      $form->handleRequest($request);
+
+      if($form->isSubmitted()) {
+        // hydratation automatique grâce à getData()
+        $author = $form->getData();
+
+        // enregistrement en bdd
+        $em =$this->getDoctrine()->getManager();
+        $em->persist($author);
+        $em->flush();
+        return $this->redirectToRoute('author_admin_page');
+
+      }
+
         return $this->render('AppBundle:Author:edit.html.twig', array(
-            // ...
+            'form' =>$form->createView()
         ));
     }
 
