@@ -8,4 +8,39 @@
 <p><strong><a href="{{ path('book_add_page') }}">> Ajouter un livre</a></strong></p>
 <hr>
 <h2>Liste des livres</h2>
+
+<table class="table table-bordered table-striped">
+
+  <tr>
+    <th>Titre du livre</th>
+    <th>N°ISBN</th>
+    <th>Nombre de pages</th>
+    <th>Auteur</th>
+    <th>Actions</th>
+  </tr>
+
+  {% for b in books %}
+  <tr>
+    <td>{{ b.title }}</td>
+    <td>{{ b.isbn }}</td>
+    <td>{{ b.pages }}</td>
+    <td>
+      <!-- Si la  propriété producer ne vaut pas NULL :
+    On peut accéder à l'objet producer-->
+      {%if b.author %}
+
+      {{ b.author.firstname }} {{ b.author.lastname }}
+      {% else %}
+      Aucun auteur
+      {% endif %}
+    </td>
+
+    <td>
+      <a class="btn btn-primary btn-xs" href="{{ path('book_edit_page', {'id': b.id}) }}">Modifier</a>
+      <a class="btn btn-danger btn-xs" href="{{ path('book_delete_page', {'id': b.id}) }}">Supprimer</a>
+    </td>
+  </tr>
+  {% endfor %}
+
+</table>
 {% endblock %}

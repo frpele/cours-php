@@ -16,6 +16,9 @@
     <th>Nom</th>
     <th>Année de naissance</th>
     <th>Pays</th>
+    <th>Livres</th>
+    <th>Actions</th>
+
   </tr>
 
   {% for a in authors %}
@@ -24,6 +27,15 @@
     <td>{{ a.lastname }}</td>
     <td>{{ a.birthYear }}</td>
     <td>{{ a.country }}</td>
+    <td>
+    {% if a.books | length > 0 %}
+      - {% for b in a.books %}
+      {{ b.title }} -
+      {% endfor %}
+    {% else %}
+    Aucun livre enregistré
+    {% endif %}
+    </td>
     <td>
       <a class="btn btn-primary btn-xs" href="{{ path('author_edit_page', {'id': a.id}) }}">Modifier</a>
       <a class="btn btn-danger btn-xs" href="{{ path('author_delete_page', {'id': a.id}) }}">Supprimer</a>

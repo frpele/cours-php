@@ -1,17 +1,29 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}AppBundle:Author:edit{% endblock %}
+{% block title %}Modifier un auteur{% endblock %}
+
+{% block css %}
+<style>
+        .form { width: 30%; }
+
+
+</style>{% endblock %}
+
 
 {% block body %}
-<h1>Modifier un nouvel auteur</h1>
+<h1>Modifier la fiche auteur :
+
+ </h1>
 <hr>
 <p><strong><a href="{{ path('author_admin_page') }}">< Retour à la liste des auteurs</a></strong></p>
 <hr>
 <h2>Remplissez les champs ci-dessous : </h2>
+<div class="form">
+
 
 {{ form_start(form) }}
 
 
 {{ form_end(form) }}
-
+</div>
 {% endblock %}

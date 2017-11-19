@@ -152,3 +152,4 @@ d9862b,127.0.0.1,GET,http://localhost:8000/producer/,1511111217,69c643,200
 c34d50,127.0.0.1,GET,http://localhost:8000/producer/add,1511111239,,200
 f88eb7,127.0.0.1,GET,http://localhost:8000/retailor/add,1511111250,,200
 846d77,127.0.0.1,GET,http://localhost:8000/retailor/add,1511111568,,200
+fb78f9,127.0.0.1,GET,http://localhost:8000/fruits/,1511124788,,200

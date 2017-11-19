@@ -1,7 +1,24 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}AppBundle:Book:add{% endblock %}
+{% block title %}Ajouter un livre{% endblock %}
+{% block css %}
+<style>
+        .form { width: 30%; }
 
+
+</style>{% endblock %}
 {% block body %}
-<h1>Welcome to the Book:add page</h1>
+<h1>Ajouter un nouveau livre</h1>
+<hr>
+<p><strong><a href="{{ path('book_admin_page') }}">< Retour à la liste des livres</a></strong></p>
+<hr>
+<h2>Remplissez les champs ci-dessous : </h2>
+<div class="form">
+
+
+{{ form_start(form) }}
+
+
+{{ form_end(form) }}
+</div>
 {% endblock %}

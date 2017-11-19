@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use AppBundle\Entity\Author;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -85,7 +84,7 @@ class AuthorController extends Controller
       ->add('birth_year', TextType::class)
       ->add('country', TextType::class)
       ->add('submit', SubmitType::class, array(
-        'label' =>'Enregistrer',
+        'label' =>'Modifier',
       ))
       ->getForm();
 
