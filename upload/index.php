@@ -7,6 +7,18 @@ var_dump($_FILES);
 // name, type, tmp_name, error, size
 
 
+$dir_upload = 'images_uploaded/';
+
+// NB : changer les permissions pour autoriser le déplacement de fichier
+if (isset($_POST['submit'])) {
+  // formulaire envoyé
+$result =  move_uploaded_file($_FILES['file']['tmp_name'],$dir_upload . $_FILES['file']['name']);
+
+($result)
+? print ("Téléchargement réussi")
+: print ("le téléchargement a échoué");
+
+}
 
 
 
@@ -20,7 +32,7 @@ var_dump($_FILES);
   <body>
     <form method="post" enctype="multipart/form-data">
       <input type="file" name="file" >
-      <input type="submit" name="" value="Envoyer les données">
+      <input type="submit" name="submit" value="Envoyer les données">
     </form>
 
   </body>

@@ -235,6 +235,17 @@ class Author extends \AppBundle\Entity\Author implements \Doctrine\ORM\Proxy\Pro
     /**
      * {@inheritDoc}
      */
+    public function getFullname()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFullname', []);
+
+        return parent::getFullname();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function setBirthYear($birthYear)
     {
 

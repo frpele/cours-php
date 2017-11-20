@@ -46,7 +46,7 @@ class BookController extends Controller
       ->add('pages', TextType::class)
       ->add('author', EntityType::class, array(
         'class' => 'AppBundle:Author',
-        'choice_label' => 'lastname'
+        'choice_label' => 'fullname'
       ))
       ->add('submit', SubmitType::class, array(
         'label' =>'Enregistrer'
