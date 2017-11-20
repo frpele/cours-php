@@ -13,7 +13,8 @@
   {% for p in producers %}
   <tr>
     <td>{{ p.name }}</td>
-  
+    <td>      <a class="btn btn-default btn-xs" href="{{ path('producer_details', {'id': p.id}) }}">Détail</a></td>
+
   </tr>
   {% endfor %}
 

@@ -142,6 +142,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'fruit_update')), array (  '_controller' => 'AppBundle\\Controller\\FruitController::updateAction',));
             }
 
+            // fruit_details
+            if (preg_match('#^/fruits/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'fruit_details')), array (  '_controller' => 'AppBundle\\Controller\\FruitController::detailsAction',));
+            }
+
         }
 
         elseif (0 === strpos($pathinfo, '/producer')) {
@@ -163,6 +168,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             // app_producer_delete
             if ('/producer/delete' === $pathinfo) {
                 return array (  '_controller' => 'AppBundle\\Controller\\ProducerController::deleteAction',  '_route' => 'app_producer_delete',);
+            }
+
+            // producer_details
+            if (preg_match('#^/producer/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'producer_details')), array (  '_controller' => 'AppBundle\\Controller\\ProducerController::detailsAction',));
             }
 
         }

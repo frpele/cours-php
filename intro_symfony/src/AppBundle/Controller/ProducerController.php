@@ -71,11 +71,11 @@ class ProducerController extends Controller
      * @Route("/edit")
      */
     public function editAction()
-    {
-        return $this->render('AppBundle:Producer:edit.html.twig', array(
-            // ...
-        ));
-    }
+      {
+          return $this->render('AppBundle:Producer:edit.html.twig', array(
+              // ...
+          ));
+      }
 
     /**
      * @Route("/delete")
@@ -85,6 +85,21 @@ class ProducerController extends Controller
         return $this->render('AppBundle:Producer:delete.html.twig', array(
             // ...
         ));
+    }
+
+    /**
+    * @Route("/{id}", name="producer_details")
+    */
+    public function detailsAction($id) {
+      // Récupérer un objet producer à partir de son identifiant
+
+      $producer = $this->getDoctrine()->getRepository(Producer::class)->findOneById($id);
+
+
+      return $this->render('AppBundle:Producer:details.html.twig', array(
+        'producer' => $producer
+        ));
+
     }
 
 }

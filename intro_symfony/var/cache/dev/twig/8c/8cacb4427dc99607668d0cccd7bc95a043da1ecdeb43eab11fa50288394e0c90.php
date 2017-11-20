@@ -21,29 +21,29 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_34875609c87bbe655302c32fde60eabaf5623128cb8018a83224bd4e7e620f73 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_34875609c87bbe655302c32fde60eabaf5623128cb8018a83224bd4e7e620f73->enter($__internal_34875609c87bbe655302c32fde60eabaf5623128cb8018a83224bd4e7e620f73_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "fruit/index.html.twig"));
+        $__internal_93d49f26fe76329df3b78eba1efdede7822ebe46f9b3d5d480cb96a6910a5a36 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_93d49f26fe76329df3b78eba1efdede7822ebe46f9b3d5d480cb96a6910a5a36->enter($__internal_93d49f26fe76329df3b78eba1efdede7822ebe46f9b3d5d480cb96a6910a5a36_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "fruit/index.html.twig"));
 
-        $__internal_46d485226372271792f3aadd8535c752b8bdff5a3dd00906c9acbb2fd929ab90 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_46d485226372271792f3aadd8535c752b8bdff5a3dd00906c9acbb2fd929ab90->enter($__internal_46d485226372271792f3aadd8535c752b8bdff5a3dd00906c9acbb2fd929ab90_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "fruit/index.html.twig"));
+        $__internal_33c28d39f40792616f3458e33b284643d9061dafb8eb39b7c0150d3ea3ae2d91 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_33c28d39f40792616f3458e33b284643d9061dafb8eb39b7c0150d3ea3ae2d91->enter($__internal_33c28d39f40792616f3458e33b284643d9061dafb8eb39b7c0150d3ea3ae2d91_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "fruit/index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_34875609c87bbe655302c32fde60eabaf5623128cb8018a83224bd4e7e620f73->leave($__internal_34875609c87bbe655302c32fde60eabaf5623128cb8018a83224bd4e7e620f73_prof);
+        $__internal_93d49f26fe76329df3b78eba1efdede7822ebe46f9b3d5d480cb96a6910a5a36->leave($__internal_93d49f26fe76329df3b78eba1efdede7822ebe46f9b3d5d480cb96a6910a5a36_prof);
 
         
-        $__internal_46d485226372271792f3aadd8535c752b8bdff5a3dd00906c9acbb2fd929ab90->leave($__internal_46d485226372271792f3aadd8535c752b8bdff5a3dd00906c9acbb2fd929ab90_prof);
+        $__internal_33c28d39f40792616f3458e33b284643d9061dafb8eb39b7c0150d3ea3ae2d91->leave($__internal_33c28d39f40792616f3458e33b284643d9061dafb8eb39b7c0150d3ea3ae2d91_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_d37eaac80a87a2d309ae647baa38a9d473f30cc33ea615a830d3d62634bbc2c4 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_d37eaac80a87a2d309ae647baa38a9d473f30cc33ea615a830d3d62634bbc2c4->enter($__internal_d37eaac80a87a2d309ae647baa38a9d473f30cc33ea615a830d3d62634bbc2c4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_8501873d75caf6c970329bc79eba2631236a4724521af64aa56a51146aa3bb2b = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_8501873d75caf6c970329bc79eba2631236a4724521af64aa56a51146aa3bb2b->enter($__internal_8501873d75caf6c970329bc79eba2631236a4724521af64aa56a51146aa3bb2b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_0ae64d1b3555c841f79d1e94877302dbfa4ac3085d67a3829828ee5812e3bda4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_0ae64d1b3555c841f79d1e94877302dbfa4ac3085d67a3829828ee5812e3bda4->enter($__internal_0ae64d1b3555c841f79d1e94877302dbfa4ac3085d67a3829828ee5812e3bda4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_010ee1bbeb00820e9173feff563bcfd045471de0ca97b9e6ca9ee0e049d1badc = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_010ee1bbeb00820e9173feff563bcfd045471de0ca97b9e6ca9ee0e049d1badc->enter($__internal_010ee1bbeb00820e9173feff563bcfd045471de0ca97b9e6ca9ee0e049d1badc_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "
@@ -118,7 +118,7 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
     <th>Nom</th>
     <th>Origine</th>
     <th>Producteur</th>
-    <th>Détaillant</th>
+    <th style=\"display:none\">Détaillant</th>
     <th>Comestible</th>
     <th>Actions</th>
   </tr>
@@ -158,7 +158,7 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
             }
             // line 66
             echo "    </td>
-    <td>
+    <td style=\"display:none\" >
     ";
             // line 68
             if ((twig_length_filter($this->env, $this->getAttribute($context["f"], "retailors", array())) > 0)) {
@@ -200,12 +200,16 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
             // line 82
             echo "    </td>
     <td>
-      <a class=\"btn btn-primary btn-xs\" href=\"";
+      <a class=\"btn btn-default btn-xs\" href=\"";
             // line 84
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fruit_details", array("id" => $this->getAttribute($context["f"], "id", array()))), "html", null, true);
+            echo "\">Détail</a>
+      <a class=\"btn btn-primary btn-xs\" href=\"";
+            // line 85
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fruit_update", array("id" => $this->getAttribute($context["f"], "id", array()))), "html", null, true);
             echo "\">Modifier</a>
       <a class=\"btn btn-danger btn-xs\" href=\"";
-            // line 85
+            // line 86
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fruit_delete", array("id" => $this->getAttribute($context["f"], "id", array()))), "html", null, true);
             echo "\">Supprimer</a>
     </td>
@@ -215,16 +219,16 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['f'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 89
+        // line 90
         echo "
 </table>
 
 ";
         
-        $__internal_0ae64d1b3555c841f79d1e94877302dbfa4ac3085d67a3829828ee5812e3bda4->leave($__internal_0ae64d1b3555c841f79d1e94877302dbfa4ac3085d67a3829828ee5812e3bda4_prof);
+        $__internal_010ee1bbeb00820e9173feff563bcfd045471de0ca97b9e6ca9ee0e049d1badc->leave($__internal_010ee1bbeb00820e9173feff563bcfd045471de0ca97b9e6ca9ee0e049d1badc_prof);
 
         
-        $__internal_d37eaac80a87a2d309ae647baa38a9d473f30cc33ea615a830d3d62634bbc2c4->leave($__internal_d37eaac80a87a2d309ae647baa38a9d473f30cc33ea615a830d3d62634bbc2c4_prof);
+        $__internal_8501873d75caf6c970329bc79eba2631236a4724521af64aa56a51146aa3bb2b->leave($__internal_8501873d75caf6c970329bc79eba2631236a4724521af64aa56a51146aa3bb2b_prof);
 
     }
 
@@ -240,7 +244,7 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
 
     public function getDebugInfo()
     {
-        return array (  219 => 89,  209 => 85,  205 => 84,  201 => 82,  197 => 80,  193 => 78,  191 => 77,  187 => 75,  183 => 73,  180 => 72,  171 => 70,  166 => 69,  164 => 68,  160 => 66,  156 => 64,  151 => 62,  148 => 61,  146 => 60,  139 => 56,  135 => 55,  132 => 54,  128 => 53,  106 => 33,  95 => 31,  91 => 30,  84 => 25,  73 => 23,  69 => 22,  49 => 4,  40 => 3,  11 => 1,);
+        return array (  223 => 90,  213 => 86,  209 => 85,  205 => 84,  201 => 82,  197 => 80,  193 => 78,  191 => 77,  187 => 75,  183 => 73,  180 => 72,  171 => 70,  166 => 69,  164 => 68,  160 => 66,  156 => 64,  151 => 62,  148 => 61,  146 => 60,  139 => 56,  135 => 55,  132 => 54,  128 => 53,  106 => 33,  95 => 31,  91 => 30,  84 => 25,  73 => 23,  69 => 22,  49 => 4,  40 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -300,7 +304,7 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
     <th>Nom</th>
     <th>Origine</th>
     <th>Producteur</th>
-    <th>Détaillant</th>
+    <th style=\"display:none\">Détaillant</th>
     <th>Comestible</th>
     <th>Actions</th>
   </tr>
@@ -319,7 +323,7 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
       Aucun producteur
       {% endif %}
     </td>
-    <td>
+    <td style=\"display:none\" >
     {% if f.retailors | length > 0 %}
       {% for r in f.retailors %}
       {{ r.name }},
@@ -336,6 +340,7 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
       {% endif %}
     </td>
     <td>
+      <a class=\"btn btn-default btn-xs\" href=\"{{ path('fruit_details', {'id': f.id}) }}\">Détail</a>
       <a class=\"btn btn-primary btn-xs\" href=\"{{ path('fruit_update', {'id': f.id}) }}\">Modifier</a>
       <a class=\"btn btn-danger btn-xs\" href=\"{{ path('fruit_delete', {'id': f.id}) }}\">Supprimer</a>
     </td>

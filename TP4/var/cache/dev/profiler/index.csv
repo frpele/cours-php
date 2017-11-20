@@ -46,3 +46,9 @@ e82ec0,127.0.0.1,GET,http://localhost:8001/book/index,1511173907,,200
 862b5c,127.0.0.1,GET,http://localhost:8001/author/index,1511173912,,200
 40d040,127.0.0.1,GET,http://localhost:8001/author/add,1511173917,,200
 b67a41,127.0.0.1,GET,http://localhost:8001/book/index,1511174612,,200
+34dfd5,127.0.0.1,GET,http://localhost:8001/book/add,1511174697,,200
+b0b7fe,127.0.0.1,GET,http://localhost:8001/book/add,1511174810,,200
+aeb4b1,127.0.0.1,GET,http://localhost:8001/book/add,1511174873,f025d3,200
+f025d3,127.0.0.1,GET,http://localhost:8001/book/add,1511174873,,500
+6c0af7,127.0.0.1,GET,http://localhost:8001/book/add,1511174901,,200
+5736ed,127.0.0.1,GET,http://localhost:8001/,1511177706,,200

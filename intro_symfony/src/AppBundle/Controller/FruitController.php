@@ -155,4 +155,19 @@ class FruitController extends Controller {
       ));
   }
 
+  /**
+  * @Route("/{id}", name="fruit_details")
+  */
+  public function detailsAction($id) {
+    // Récupérer un objet fruit à partir de son identifiant
+
+    $fruit = $this->getDoctrine()->getRepository(Fruit::class)->findOneById($id);
+
+
+    return $this->render('fruit/details.html.twig', array(
+      'fruit' => $fruit
+      ));
+
+  }
+
 }
