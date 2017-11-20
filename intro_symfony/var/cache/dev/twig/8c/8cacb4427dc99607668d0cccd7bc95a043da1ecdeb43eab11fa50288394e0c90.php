@@ -21,35 +21,35 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_d6eb54c3050df9f52cdc30ab7ea5436a9c82820999ea486e68a5cd9b27724c0a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_d6eb54c3050df9f52cdc30ab7ea5436a9c82820999ea486e68a5cd9b27724c0a->enter($__internal_d6eb54c3050df9f52cdc30ab7ea5436a9c82820999ea486e68a5cd9b27724c0a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "fruit/index.html.twig"));
+        $__internal_34875609c87bbe655302c32fde60eabaf5623128cb8018a83224bd4e7e620f73 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_34875609c87bbe655302c32fde60eabaf5623128cb8018a83224bd4e7e620f73->enter($__internal_34875609c87bbe655302c32fde60eabaf5623128cb8018a83224bd4e7e620f73_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "fruit/index.html.twig"));
 
-        $__internal_ecd03ccb1d7795dba8e958c9f11f2cf23a1a0bfd2155e9a193600e5030882b23 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_ecd03ccb1d7795dba8e958c9f11f2cf23a1a0bfd2155e9a193600e5030882b23->enter($__internal_ecd03ccb1d7795dba8e958c9f11f2cf23a1a0bfd2155e9a193600e5030882b23_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "fruit/index.html.twig"));
+        $__internal_46d485226372271792f3aadd8535c752b8bdff5a3dd00906c9acbb2fd929ab90 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_46d485226372271792f3aadd8535c752b8bdff5a3dd00906c9acbb2fd929ab90->enter($__internal_46d485226372271792f3aadd8535c752b8bdff5a3dd00906c9acbb2fd929ab90_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "fruit/index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_d6eb54c3050df9f52cdc30ab7ea5436a9c82820999ea486e68a5cd9b27724c0a->leave($__internal_d6eb54c3050df9f52cdc30ab7ea5436a9c82820999ea486e68a5cd9b27724c0a_prof);
+        $__internal_34875609c87bbe655302c32fde60eabaf5623128cb8018a83224bd4e7e620f73->leave($__internal_34875609c87bbe655302c32fde60eabaf5623128cb8018a83224bd4e7e620f73_prof);
 
         
-        $__internal_ecd03ccb1d7795dba8e958c9f11f2cf23a1a0bfd2155e9a193600e5030882b23->leave($__internal_ecd03ccb1d7795dba8e958c9f11f2cf23a1a0bfd2155e9a193600e5030882b23_prof);
+        $__internal_46d485226372271792f3aadd8535c752b8bdff5a3dd00906c9acbb2fd929ab90->leave($__internal_46d485226372271792f3aadd8535c752b8bdff5a3dd00906c9acbb2fd929ab90_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_204580431903fab58b63910ace331949425e84e4323eafcf93719420391df414 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_204580431903fab58b63910ace331949425e84e4323eafcf93719420391df414->enter($__internal_204580431903fab58b63910ace331949425e84e4323eafcf93719420391df414_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_d37eaac80a87a2d309ae647baa38a9d473f30cc33ea615a830d3d62634bbc2c4 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_d37eaac80a87a2d309ae647baa38a9d473f30cc33ea615a830d3d62634bbc2c4->enter($__internal_d37eaac80a87a2d309ae647baa38a9d473f30cc33ea615a830d3d62634bbc2c4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_a81363760bfa466fe5d531b740a14898135336bcce817fdf30082b797999701c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_a81363760bfa466fe5d531b740a14898135336bcce817fdf30082b797999701c->enter($__internal_a81363760bfa466fe5d531b740a14898135336bcce817fdf30082b797999701c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_0ae64d1b3555c841f79d1e94877302dbfa4ac3085d67a3829828ee5812e3bda4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_0ae64d1b3555c841f79d1e94877302dbfa4ac3085d67a3829828ee5812e3bda4->enter($__internal_0ae64d1b3555c841f79d1e94877302dbfa4ac3085d67a3829828ee5812e3bda4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "
 <h2>Fruits</h2>
 
-<form class=\"form-inline\" method=\"post\">
+<form class=\"form-inline well\" method=\"post\">
   <div class=\"form-group\">
     <input type=\"text\" name=\"name\" placeholder=\"Nom\" >
   </div>
@@ -61,27 +61,49 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
     <label for=\"comestible\">Comestible</label>
     <input type=\"checkbox\" name=\"comestible\">
   </div>
-
-  <select class=\"\" name=\"producer_id\">
-    <option value=\"0\">Choisir un producteur</option>
-    ";
+  <div class=\"form-group\">
+    <select class=\"\" name=\"producer_id\">
+      <option value=\"0\">Choisir un producteur</option>
+      ";
         // line 22
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["producers"] ?? $this->getContext($context, "producers")));
         foreach ($context['_seq'] as $context["_key"] => $context["p"]) {
             // line 23
-            echo "      <option value=\" ";
+            echo "        <option value=\" ";
             echo twig_escape_filter($this->env, $this->getAttribute($context["p"], "id", array()), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["p"], "name", array()), "html", null, true);
             echo "</option>
-      ";
+        ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['p'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 25
-        echo "  </select>
+        echo "    </select>
+  </div>
+
+  <div class=\"form-group\">
+    <p>Catégories</p>
+    ";
+        // line 30
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["categories"] ?? $this->getContext($context, "categories")));
+        foreach ($context['_seq'] as $context["_key"] => $context["c"]) {
+            // line 31
+            echo "    <input type=\"checkbox\" name=\"categories[]\" value=\"";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["c"], "id", array()), "html", null, true);
+            echo "\"> ";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["c"], "name", array()), "html", null, true);
+            echo "
+    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['c'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 33
+        echo "  </div>
 
     <input type=\"submit\" name=\"submit\" value=\"Enregistrer\">
 </form>
@@ -102,50 +124,50 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
   </tr>
 
   ";
-        // line 45
+        // line 53
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["fruits"] ?? $this->getContext($context, "fruits")));
         foreach ($context['_seq'] as $context["_key"] => $context["f"]) {
-            // line 46
+            // line 54
             echo "  <tr>
     <td>";
-            // line 47
+            // line 55
             echo twig_escape_filter($this->env, $this->getAttribute($context["f"], "name", array()), "html", null, true);
             echo "</td>
     <td>";
-            // line 48
+            // line 56
             echo twig_escape_filter($this->env, $this->getAttribute($context["f"], "origin", array()), "html", null, true);
             echo "</td>
     <td>
       <!-- Si la  propriété producer ne vaut pas NULL :
     On peut accéder à l'objet producer-->
       ";
-            // line 52
+            // line 60
             if ($this->getAttribute($context["f"], "producer", array())) {
-                // line 53
+                // line 61
                 echo "
       ";
-                // line 54
+                // line 62
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["f"], "producer", array()), "name", array()), "html", null, true);
                 echo "
       ";
             } else {
-                // line 56
+                // line 64
                 echo "      Aucun producteur
       ";
             }
-            // line 58
+            // line 66
             echo "    </td>
     <td>
     ";
-            // line 60
+            // line 68
             if ((twig_length_filter($this->env, $this->getAttribute($context["f"], "retailors", array())) > 0)) {
-                // line 61
+                // line 69
                 echo "      ";
                 $context['_parent'] = $context;
                 $context['_seq'] = twig_ensure_traversable($this->getAttribute($context["f"], "retailors", array()));
                 foreach ($context['_seq'] as $context["_key"] => $context["r"]) {
-                    // line 62
+                    // line 70
                     echo "      ";
                     echo twig_escape_filter($this->env, $this->getAttribute($context["r"], "name", array()), "html", null, true);
                     echo ",
@@ -154,36 +176,36 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['r'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 64
+                // line 72
                 echo "    ";
             } else {
-                // line 65
+                // line 73
                 echo "    Aucun distributeur
     ";
             }
-            // line 67
+            // line 75
             echo "    </td>
     <td>
       ";
-            // line 69
+            // line 77
             if (($this->getAttribute($context["f"], "comestible", array()) == 1)) {
-                // line 70
+                // line 78
                 echo "      oui
       ";
             } else {
-                // line 72
+                // line 80
                 echo "      non
       ";
             }
-            // line 74
+            // line 82
             echo "    </td>
     <td>
       <a class=\"btn btn-primary btn-xs\" href=\"";
-            // line 76
+            // line 84
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fruit_update", array("id" => $this->getAttribute($context["f"], "id", array()))), "html", null, true);
             echo "\">Modifier</a>
       <a class=\"btn btn-danger btn-xs\" href=\"";
-            // line 77
+            // line 85
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("fruit_delete", array("id" => $this->getAttribute($context["f"], "id", array()))), "html", null, true);
             echo "\">Supprimer</a>
     </td>
@@ -193,16 +215,16 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['f'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 81
+        // line 89
         echo "
 </table>
 
 ";
         
-        $__internal_a81363760bfa466fe5d531b740a14898135336bcce817fdf30082b797999701c->leave($__internal_a81363760bfa466fe5d531b740a14898135336bcce817fdf30082b797999701c_prof);
+        $__internal_0ae64d1b3555c841f79d1e94877302dbfa4ac3085d67a3829828ee5812e3bda4->leave($__internal_0ae64d1b3555c841f79d1e94877302dbfa4ac3085d67a3829828ee5812e3bda4_prof);
 
         
-        $__internal_204580431903fab58b63910ace331949425e84e4323eafcf93719420391df414->leave($__internal_204580431903fab58b63910ace331949425e84e4323eafcf93719420391df414_prof);
+        $__internal_d37eaac80a87a2d309ae647baa38a9d473f30cc33ea615a830d3d62634bbc2c4->leave($__internal_d37eaac80a87a2d309ae647baa38a9d473f30cc33ea615a830d3d62634bbc2c4_prof);
 
     }
 
@@ -218,7 +240,7 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
 
     public function getDebugInfo()
     {
-        return array (  197 => 81,  187 => 77,  183 => 76,  179 => 74,  175 => 72,  171 => 70,  169 => 69,  165 => 67,  161 => 65,  158 => 64,  149 => 62,  144 => 61,  142 => 60,  138 => 58,  134 => 56,  129 => 54,  126 => 53,  124 => 52,  117 => 48,  113 => 47,  110 => 46,  106 => 45,  84 => 25,  73 => 23,  69 => 22,  49 => 4,  40 => 3,  11 => 1,);
+        return array (  219 => 89,  209 => 85,  205 => 84,  201 => 82,  197 => 80,  193 => 78,  191 => 77,  187 => 75,  183 => 73,  180 => 72,  171 => 70,  166 => 69,  164 => 68,  160 => 66,  156 => 64,  151 => 62,  148 => 61,  146 => 60,  139 => 56,  135 => 55,  132 => 54,  128 => 53,  106 => 33,  95 => 31,  91 => 30,  84 => 25,  73 => 23,  69 => 22,  49 => 4,  40 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -237,7 +259,7 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
 
 <h2>Fruits</h2>
 
-<form class=\"form-inline\" method=\"post\">
+<form class=\"form-inline well\" method=\"post\">
   <div class=\"form-group\">
     <input type=\"text\" name=\"name\" placeholder=\"Nom\" >
   </div>
@@ -249,13 +271,21 @@ class __TwigTemplate_d21eb80562e73d78c64f7d8aa5fb36ca9cb13266abe43c84ee8f19fbdc3
     <label for=\"comestible\">Comestible</label>
     <input type=\"checkbox\" name=\"comestible\">
   </div>
+  <div class=\"form-group\">
+    <select class=\"\" name=\"producer_id\">
+      <option value=\"0\">Choisir un producteur</option>
+      {% for p in producers %}
+        <option value=\" {{ p.id }}\">{{ p.name }}</option>
+        {% endfor %}
+    </select>
+  </div>
 
-  <select class=\"\" name=\"producer_id\">
-    <option value=\"0\">Choisir un producteur</option>
-    {% for p in producers %}
-      <option value=\" {{ p.id }}\">{{ p.name }}</option>
-      {% endfor %}
-  </select>
+  <div class=\"form-group\">
+    <p>Catégories</p>
+    {% for c in categories %}
+    <input type=\"checkbox\" name=\"categories[]\" value=\"{{ c.id }}\"> {{ c.name}}
+    {% endfor %}
+  </div>
 
     <input type=\"submit\" name=\"submit\" value=\"Enregistrer\">
 </form>

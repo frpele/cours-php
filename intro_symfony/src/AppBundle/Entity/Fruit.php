@@ -57,6 +57,14 @@ class Fruit
      */
     private $retailors;
 
+    /**
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Category")
+     *
+     */
+    private $category;
+
+
 
     /**
      * Get id
@@ -203,5 +211,39 @@ class Fruit
     public function getRetailors()
     {
         return $this->retailors;
+    }
+
+    /**
+     * Add category
+     *
+     * @param \AppBundle\Entity\Category $category
+     *
+     * @return Fruit
+     */
+    public function addCategory(\AppBundle\Entity\Category $category)
+    {
+        $this->category[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \AppBundle\Entity\Category $category
+     */
+    public function removeCategory(\AppBundle\Entity\Category $category)
+    {
+        $this->category->removeElement($category);
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

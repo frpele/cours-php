@@ -103,6 +103,16 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // category_index
+        if ('/category/index' === $pathinfo) {
+            return array (  '_controller' => 'AppBundle\\Controller\\CategoryController::indexAction',  '_route' => 'category_index',);
+        }
+
+        // app_category_add
+        if ('/category/add' === $pathinfo) {
+            return array (  '_controller' => 'AppBundle\\Controller\\CategoryController::addAction',  '_route' => 'app_category_add',);
+        }
+
         // homepage
         if ('' === $trimmedPathinfo) {
             if (substr($pathinfo, -1) !== '/') {

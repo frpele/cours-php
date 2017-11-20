@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Fruit;
 use AppBundle\Entity\Producer;
+use AppBundle\Entity\Category;
 
 
 /**
@@ -31,6 +32,11 @@ class FruitController extends Controller {
       $comestible = $post->get('comestible');
       $producer_id = $post->get('producer_id');
 
+      // On récuprère un tableau d'identifiants de catégetDoctrine
+      // exemple : ["1", "4"] correspondants aux cases cochées
+
+      $categories_posted = $post->get('categories');
+
       // récupérer l'objet producer complet à partir d'un id
       $producer = $this->getDoctrine()
       ->getRepository(Producer::class)->find($producer_id);
@@ -39,7 +45,16 @@ class FruitController extends Controller {
       $comestible = ($comestible) ? 1 : 0;
 
       $fruit = new Fruit();
+
       // hydratation
+      // récupérer les objets category complets à partir d'un id
+      //A chache passage, création d'un objet de type category
+      foreach ($categories_posted as $c) {
+        $category = $this->getDoctrine()
+        ->getRepository(Category::class)->find($c);
+        // Alimentation de la propriété category de l'objet fruit
+        $fruit->addCategory($category);
+        }
       $fruit->setName($name);
       $fruit->setOrigin($origin);
       $fruit->setComestible($comestible);
@@ -70,9 +85,15 @@ class FruitController extends Controller {
         ->getRepository(Producer::class) // pour récupérer les données
         ->findAll();
 
+    $categories = $this
+        ->getDoctrine()
+        ->getRepository(Category::class) // pour récupérer les données
+        ->findAll();
+
     return $this->render('fruit/index.html.twig', array(
       'fruits' => $fruits,
-      'producers' => $producers
+      'producers' => $producers,
+      'categories' => $categories
     ));
 
   }
