@@ -52,7 +52,9 @@ class ProducerController extends Controller
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted()) {
+        // La méthode isValid est en relation avec les annotations
+        //@Assert, elle vérifie l'ensemble des conditions
+        if($form->isSubmitted() && $form->isValid()) {
           // hydratation automatique grâce à getData()
           $producer = $form->getData();
 

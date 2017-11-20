@@ -115,6 +115,12 @@ class Author
         return $this->lastname;
     }
 
+    public function getFullname()
+    {
+        return $this->fullname = $this->firstname . ' '.  $this->lastname;
+
+    }
+
     /**
      * Set birthYear
      *

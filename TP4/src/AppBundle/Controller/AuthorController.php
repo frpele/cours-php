@@ -65,7 +65,7 @@ class AuthorController extends Controller
       }
 
       return $this->render('AppBundle:Author:add.html.twig', array(
-          'form' =>$form->createView()
+          'form'    =>$form->createView()
 
           ));
   }
@@ -103,7 +103,8 @@ class AuthorController extends Controller
       }
 
         return $this->render('AppBundle:Author:edit.html.twig', array(
-            'form' =>$form->createView()
+            'form' =>$form->createView(),
+            'author'=>$author
         ));
     }
 

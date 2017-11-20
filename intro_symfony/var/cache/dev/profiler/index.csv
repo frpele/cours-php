@@ -338,3 +338,5 @@ d742d4,127.0.0.1,POST,http://localhost:8000/producer/add,1511188283,,200
 fd46d8,127.0.0.1,POST,http://localhost:8000/producer/add,1511188420,,200
 f17772,127.0.0.1,POST,http://localhost:8000/producer/add,1511188431,,200
 e898e7,127.0.0.1,POST,http://localhost:8000/producer/add,1511188462,,200
+0b8cf6,127.0.0.1,GET,http://localhost:8000/producer/add,1511189947,,200
+ae13f0,127.0.0.1,POST,http://localhost:8000/producer/add,1511189949,,200
