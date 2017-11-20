@@ -37,6 +37,7 @@ class FruitController extends Controller {
 
       $categories_posted = $post->get('categories');
 
+
       // récupérer l'objet producer complet à partir d'un id
       $producer = $this->getDoctrine()
       ->getRepository(Producer::class)->find($producer_id);
@@ -49,12 +50,15 @@ class FruitController extends Controller {
       // hydratation
       // récupérer les objets category complets à partir d'un id
       //A chache passage, création d'un objet de type category
-      foreach ($categories_posted as $c) {
-        $category = $this->getDoctrine()
-        ->getRepository(Category::class)->find($c);
-        // Alimentation de la propriété category de l'objet fruit
-        $fruit->addCategory($category);
-        }
+      if ($categories_posted !== NULL) {
+        // L'utilisateur a coché au moins une case de catégorie
+        foreach ($categories_posted as $c) {
+          $category = $this->getDoctrine()
+          ->getRepository(Category::class)->find($c);
+          // Alimentation de la propriété category de l'objet fruit
+          $fruit->addCategory($category);
+        } 
+      }
       $fruit->setName($name);
       $fruit->setOrigin($origin);
       $fruit->setComestible($comestible);

@@ -6,8 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use AppBundle\Entity\Producer;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/producer")
@@ -42,6 +44,7 @@ class ProducerController extends Controller
 
         $form =$this->createFormBuilder($producer)
         ->add('name', TextType::class)
+        ->add('email', TextType::class)
         ->add('submit', SubmitType::class, array(
           'label' =>'Enregistrer',
         ))
@@ -53,10 +56,28 @@ class ProducerController extends Controller
           // hydratation automatique grâce à getData()
           $producer = $form->getData();
 
+          // Validation de données
+
+          $str_len = strlen($producer->getName());
+          $min = 3;
+          $max = 10;
+          $cond1 = $str_len >= $min;
+          $cond2 = $str_len <= $max;
+          $total_cond = $cond1 && $cond2;
+          $message ="Il faut au moins ";
+          $message .= $min ." caractères et au plus ";
+          $message .= $max ." caractères";
+
+
+          if (!$total_cond) return new Response($message);
+
+
           // enregistrement en bdd
           $em =$this->getDoctrine()->getManager();
           $em->persist($producer);
           $em->flush();
+
+
           return $this->redirectToRoute('producer_index');
 
         }

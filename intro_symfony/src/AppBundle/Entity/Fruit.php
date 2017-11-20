@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Producer;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Fruit
@@ -26,6 +27,7 @@ class Fruit
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $name;
 
