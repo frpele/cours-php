@@ -18,6 +18,6 @@ $(document).ready(function () {
       : $(this).html('Afficher le formulaire');
   });
 
-
+// Ajax 
 
 });

@@ -359,3 +359,6 @@ fe0272,127.0.0.1,GET,http://localhost:8000/fruits/,1511343226,,200
 6d5b72,127.0.0.1,GET,http://localhost:8000/fruits/client/json,1511343612,3ea34f,200
 3ea34f,127.0.0.1,GET,http://localhost:8000/fruits/client/json,1511343612,,404
 45b86e,127.0.0.1,GET,http://localhost:8000/fruits/api/client,1511343625,,200
+d468a0,127.0.0.1,GET,http://localhost:8000/fruits/api/client,1511343775,,200
+580900,127.0.0.1,GET,http://localhost:8000/fruits/api/client,1511343789,,200
+15b803,127.0.0.1,GET,http://localhost:8000/fruits/,1511344148,,200
