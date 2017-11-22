@@ -57,7 +57,7 @@ class FruitController extends Controller {
           ->getRepository(Category::class)->find($c);
           // Alimentation de la propriété category de l'objet fruit
           $fruit->addCategory($category);
-        } 
+        }
       }
       $fruit->setName($name);
       $fruit->setOrigin($origin);
@@ -88,6 +88,7 @@ class FruitController extends Controller {
         ->getDoctrine()
         ->getRepository(Producer::class) // pour récupérer les données
         ->findAll();
+        // ->findAllNotAssigned();
 
     $categories = $this
         ->getDoctrine()
@@ -172,6 +173,48 @@ class FruitController extends Controller {
       'fruit' => $fruit
       ));
 
+  }
+
+  /**
+   * @Route("/category/{name}")
+  */
+  public function byCategoryAction($name) {
+    $fruits = $this->getDoctrine()
+      ->getRepository(Fruit::class)
+      ->findByCategoryName($name);
+
+    return $this->render('fruit/by-category.html.twig', array(
+      'fruits' => $fruits,
+      'name' => $name
+    ));
+  }
+
+  /**
+   * @Route("/api/json")
+  */
+  public function jsonAction() {
+    $fruits = ['pomme', 'poire', 'cerise'];
+    $fruit = [
+      'name'=>'Pomme',
+      'origin'=>'France',
+      'comestible'=>true,
+      'category' => [
+        array('name' => 'Cuisine'),
+        array('name' => 'Voyage')
+      ]
+  ];
+
+    // conversion du tableau PHP en chaîne de caractères JSON
+    $fruits_json = json_encode($fruit);
+
+    return new Response($fruits_json);
+  }
+
+  /**
+   * @Route("/api/client")
+  */
+  public function clientAction() {
+    return $this->render('client.html.twig');
   }
 
 }

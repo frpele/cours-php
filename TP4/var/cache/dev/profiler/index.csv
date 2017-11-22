@@ -82,3 +82,5 @@ b25004,127.0.0.1,GET,http://localhost:8001/author/edit/1,1511192160,,200
 95ca2f,127.0.0.1,GET,http://localhost:8001/author/edit/1,1511192201,,200
 e01c79,127.0.0.1,GET,http://localhost:8001/book/index,1511192551,,200
 22e425,127.0.0.1,GET,http://localhost:8001/book/add,1511192552,,200
+9ff250,127.0.0.1,GET,http://localhost:8001/book/index,1511193845,,200
+534725,127.0.0.1,GET,http://localhost:8001/book/edit/1,1511193850,,200

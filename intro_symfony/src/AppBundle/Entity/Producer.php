@@ -31,7 +31,7 @@ class Producer
     private $name;
 
 
-    /**
+      /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
@@ -40,6 +40,15 @@ class Producer
       * )
       */
     private $email;
+
+
+    /**
+    * @var string
+    *
+    * @ORM\Column(name="logo", type="string", length=255)
+    *
+    */
+    private $logo;
 
 
     /**
