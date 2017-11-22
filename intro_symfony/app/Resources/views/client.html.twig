@@ -1,13 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
 <h1>Ajax</h1>
+<hr>
+<div id="app">
+  <button type=button id= "btnTestAjax">Test Ajax</button>
+  <button type=button id= "btnListFruits">Afficher les fruits</button>
+  Afficher en tant que:
+  <select id="selectFormat">
+    <option value="table">Tableau</option>
+    <option value="list">Liste</option>
+  </select>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div id="fruitDisplay" ></div>
+      </div>
+      <div class="col-md-4">
+        <div id="fruitDetail" >Détails</div>
+      </div>
+    </div>
 
-<button type=button id= "btnTestAjax">Test Ajax</button>
-<button type=button id= "btnListFruits">Charger les fruits</button>
+  </div>
+  <hr>
 
-<div id="fruitDisplay" ></div>
+</div>
 
 
 {% endblock %}

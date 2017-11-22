@@ -234,10 +234,11 @@ class FruitController extends Controller {
     foreach($fruits as $fruit) {
 
         $fruit_assoc = [
+          'id'        =>    $fruit->getId(),
           'name'        =>  $fruit->getName(),
           'origin'      =>  $fruit->getOrigin(),
           'comestible'  =>  $fruit->getComestible(),
-          ];
+                    ];
 
         if ($fruit->getProducer()) {
           $fruit_assoc['producer'] = $fruit->getProducer()->getName();
