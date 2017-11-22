@@ -29,10 +29,25 @@ var ajaxFn = function() {
 }
 
 var ajaxListFruits = function () {
-
-  console.log('liste des fruits');
-
+  $.get(server + '/fruits/api/list', function(res){
+    var fruits = JSON.parse(res);
+    fruitDisplay.html(transformToHtml(fruits,'list'));
+  });
 }
+
+var transformToHtml = function(fruits,type) {
+  var output = '';
+  if(type == 'list') {
+    output += '<ul>';
+    // itération sur fruits
+    fruits.forEach(function(fruit) {
+    output += '<li>' + fruit.name + '</li>';
+    });
+    output += '</ul>';
+  }
+  return output;
+}
+
 
 // événements
 btnTestAjax.click(ajaxFn);

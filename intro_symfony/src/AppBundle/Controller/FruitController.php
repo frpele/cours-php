@@ -232,14 +232,17 @@ class FruitController extends Controller {
     // transformation d'objets fruits en tableaux associatifs
     $fruits_assoc = [];
     foreach($fruits as $fruit) {
+
         $fruit_assoc = [
           'name'        =>  $fruit->getName(),
           'origin'      =>  $fruit->getOrigin(),
           'comestible'  =>  $fruit->getComestible(),
           ];
+
         if ($fruit->getProducer()) {
           $fruit_assoc['producer'] = $fruit->getProducer()->getName();
           }
+
         $fruits_assoc[] = $fruit_assoc; // équivalent d'un array_push
       }
 
