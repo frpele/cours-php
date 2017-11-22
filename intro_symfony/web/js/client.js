@@ -79,8 +79,8 @@ var transformToHtml = function(fruits,type) {
     } else {
       var producer = fruit.producer;
     }
-
-    output += '<tr><td><a href="'. app.server + fruit.id +'">' + fruit.name + '</a></td>';
+    output += '<td><a id="viewDetails" href="'+ url + fruit.id + '">' + fruit.name + '</a></td>';
+    // output += '<tr><td><a href="'. url + fruit.id +'">' + fruit.name + '</a></td>';
     output += '<td>' + fruit.origin + '</td>';
     output += '<td>' + comestible + '</td>';
       output += '<td>' + producer + '</td></tr>';
@@ -105,6 +105,7 @@ var transformToHtml = function(fruits,type) {
 btnTestAjax.click(ajaxFn);
 btnListFruits.click(ajaxListFruits);
 selectFormat.change(ajaxListFruits);
+viewDetails.click(viewDetails(fruit.id));
 
 init();
 

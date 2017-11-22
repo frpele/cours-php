@@ -153,6 +153,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
 
             if (0 === strpos($pathinfo, '/fruits/api')) {
+                // app_fruit_viewdetails
+                if (0 === strpos($pathinfo, '/fruits/api/details') && preg_match('#^/fruits/api/details/(?P<i>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'app_fruit_viewdetails')), array (  '_controller' => 'AppBundle\\Controller\\FruitController::viewDetails',));
+                }
+
                 // app_fruit_json
                 if ('/fruits/api/json' === $pathinfo) {
                     return array (  '_controller' => 'AppBundle\\Controller\\FruitController::jsonAction',  '_route' => 'app_fruit_json',);

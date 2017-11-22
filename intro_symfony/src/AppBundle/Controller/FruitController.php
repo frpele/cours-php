@@ -190,6 +190,31 @@ class FruitController extends Controller {
   }
 
   /**
+   * @Route("/api/details/{i}")
+  */
+  public function viewDetails($id) {
+    $fruits = $this->getDoctrine()
+    ->getRepository(Fruit::class)
+    ->findOneById($id);
+
+    $fruits_assoc = [];
+    foreach($fruits as $fruit) {
+
+        $fruit_assoc = [
+          'id'        =>    $fruit->getId(),
+                    ];
+        $fruits_assoc[] = $fruit_assoc; // équivalent d'un array_push
+      }
+
+    // encodage en JSON du tableau associatif
+    $fruits_json = json_encode($fruits_assoc);
+
+    return new Response($fruits_json);
+  
+  }
+
+
+  /**
    * @Route("/api/json")
   */
   public function jsonAction() {

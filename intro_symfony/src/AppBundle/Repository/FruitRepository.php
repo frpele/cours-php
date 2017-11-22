@@ -21,12 +21,11 @@ class FruitRepository extends \Doctrine\ORM\EntityRepository
     // DQL fournit-il une solution ??? Christophe mène l'enquête
 
     $query =
-    'SELECT f FROM AppBundle:Fruit f
-    JOIN f.category c
-    WHERE c.name = :name
-    ORDER BY NAME ASC
+    ' SELECT f FROM AppBundle:Fruit f
+      JOIN f.category c
+      WHERE c.name = :name
+      ORDER BY f.name ASC
     ';
-
 
     return $this->getEntityManager()
       ->createQuery($query)
