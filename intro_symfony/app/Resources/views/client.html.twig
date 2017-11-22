@@ -5,9 +5,13 @@
 <h1>Ajax</h1>
 
 <button type=button id= "btnTestAjax">Test Ajax</button>
-<div >
+<button type=button id= "btnListFruits">Charger les fruits</button>
 
-</div>
+<div id="fruitDisplay" ></div>
 
 
+{% endblock %}
+
+{% block js %}
+<script src="{{asset('js/client.js')}}"></script>
 {% endblock %}
